@@ -1,0 +1,18 @@
+# KDE directory preferences
+.directory
+
+# Dependency directories
+node_modules/
+
+# Ignore IDE files
+.idea/
+
+# Ignore built files
+dist/
+build/
+
+# Ignore Jest coverage report
+coverage
+
+# Ignore Preact-CLI bundle size tracker
+size-plugin.json

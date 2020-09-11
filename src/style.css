@@ -1,0 +1,38 @@
+@import '~bulma/css/bulma.min.css';
+
+html {
+    color: #253746;
+    background-color: #ededed;
+    overflow-y: auto;
+}
+
+.hero {
+    background-color: #253746;
+    color: #ddd;
+    height: 12rem;
+}
+
+.preview {
+    width: 100%;
+    max-width: 1100px;
+    margin: 80px auto;
+    border: 1px dashed rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.preview::before {
+    content: 'WIDGET PREVIEW';
+    position: absolute;
+    display: block;
+    top: -18px;
+    font-size: 11px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.preact-hint__content {
+    font-size: 0.75em;
+}
+
+strong {
+    color: #fff;
+}

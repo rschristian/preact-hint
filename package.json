@@ -20,7 +20,7 @@
   "sideEffects": false,
   "scripts": {
     "serve:dev": "preact watch -p 3000 --template src/template.html",
-    "build": "microbundle --entry src/Hint/index.tsx --tsconfig tsconfig.build.json",
+    "build": "microbundle --entry src/Hint/index.tsx --css-modules false --tsconfig tsconfig.build.json",
     "lint": "eslint '{src,test}/**/*.{js,ts,tsx}' --fix && prettier '*.json' --write",
     "test": "jest --clearCache && jest --coverage"
   },

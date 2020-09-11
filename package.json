@@ -21,28 +21,19 @@
   "scripts": {
     "serve:dev": "preact watch -p 3000 --template src/template.html",
     "build": "microbundle --entry src/Hint/index.tsx --css-modules false --tsconfig tsconfig.build.json",
-    "lint": "eslint '{src,test}/**/*.{js,ts,tsx}' --fix && prettier '*.json' --write",
-    "test": "jest --clearCache && jest --coverage"
+    "lint": "eslint '{src,test}/**/*.{js,ts,tsx}' --fix && prettier '*.json' --write"
   },
   "peerDependencies": {
     "preact": "*"
   },
   "devDependencies": {
-    "@types/enzyme": "^3.10.5",
-    "@types/jest": "^26.0.4",
     "@typescript-eslint/eslint-plugin": "2.33.0",
     "@typescript-eslint/parser": "2.33.0",
-    "enzyme": "^3.11.0",
-    "enzyme-adapter-preact-pure": "^2.2.0",
-    "enzyme-to-json": "^3.5.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.3",
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "^4.0.2",
-    "jest": "^26.1.0",
-    "jest-fetch-mock": "^3.0.3",
-    "jest-preset-preact": "^4.0.2",
     "microbundle": "^0.12.3",
     "preact": "^10.4.7",
     "preact-cli": "^3.0.1",

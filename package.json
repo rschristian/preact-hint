@@ -21,6 +21,7 @@
   "scripts": {
     "serve:dev": "preact watch -p 3000",
     "build": "microbundle --entry src/Hint/index.ts --css-modules false --tsconfig tsconfig.build.json",
+    "build:demo": "preact build --template src/template.html",
     "lint": "eslint '{src,test}/**/*.{js,ts,tsx}' --fix && prettier 'src/**/*.json' '*.json' --write"
   },
   "peerDependencies": {

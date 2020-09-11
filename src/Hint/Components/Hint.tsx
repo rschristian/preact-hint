@@ -1,18 +1,40 @@
-import { ComponentChild, h, VNode } from 'preact';
+import { h, VNode } from 'preact';
+import { useEffect, useRef, useState } from 'preact/hooks';
+
+import './hint.css';
 
 interface Props {
-    content: string | ComponentChild;
-    timeout: number;
+    content: string;
+    template?: (content: string) => VNode;
+    rootBoundingRect: ClientRect;
+    targetBoundingRect: ClientRect;
 }
 
 export default function Hint(props: Props): VNode {
+    const hint = useRef<HTMLSpanElement>(null);
+    const [hintWidth, setHintWidth] = useState(0);
+
+    useEffect(() => {
+        if (hint.current) {
+            setHintWidth(hint.current.getBoundingClientRect().width);
+        }
+    }, [hint]);
+
     return (
         <div
-            id="preact-hint__hint"
-            class="preact-hint preact-hint--top fade-in"
-            style={{ bottom: 6, left: 51.2 - 128 - 5 }}
+            class="preact-hint fade-in"
+            style={{
+                bottom: props.rootBoundingRect.height - props.targetBoundingRect.top + props.rootBoundingRect.top + 2,
+                left:
+                    props.targetBoundingRect.left -
+                    props.rootBoundingRect.left -
+                    hintWidth / 2 +
+                    props.targetBoundingRect.width / 2,
+            }}
         >
-            <span class="preact-hint__content">{props.content}</span>
+            <span class="preact-hint__content" ref={hint}>
+                {props.template ? props.template(props.content) : props.content}
+            </span>
         </div>
     );
 }

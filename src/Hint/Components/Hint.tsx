@@ -22,7 +22,7 @@ export default function Hint(props: Props): VNode {
 
     return (
         <div
-            class="preact-hint fade-in"
+            class="preact-hint preact-hint__fade-in"
             style={{
                 bottom: props.rootBoundingRect.height - props.targetBoundingRect.top + props.rootBoundingRect.top + 2,
                 left:

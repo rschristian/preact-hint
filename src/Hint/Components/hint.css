@@ -5,7 +5,7 @@
     cursor: default;
 }
 
-.fade-in {
+.preact-hint__fade-in {
     animation: .5s fadeIn;
 }
 

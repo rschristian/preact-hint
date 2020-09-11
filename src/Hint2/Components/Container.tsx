@@ -1,5 +1,5 @@
 import { ComponentChild, h, VNode } from 'preact';
-import { useEffect, useRef, useState } from 'preact/hooks';
+import { useCallback, useState } from 'preact/hooks';
 
 import Hint from './Hint';
 
@@ -9,37 +9,40 @@ interface Props {
 }
 
 export default function Container(props: Props): VNode {
-    const root = useRef<HTMLDivElement>(null);
+    const [root, setRoot] = useState<HTMLDivElement | null>(null);
 
-    const [rootBoundingRect, setRootBoundingRect] = useState<ClientRect | null>(null);
     const [targetBoundingRect, setTargetBoundingRect] = useState<ClientRect | null>(null);
     const [html, setHtml] = useState<string | null>(null);
 
-    useEffect(() => {
-        if (root.current !== null) {
-            setRootBoundingRect(root.current.getBoundingClientRect());
-            root.current.addEventListener('mouseover', (e) => {
-                if (e.target instanceof Element && e.target.hasAttribute('preact-hint-data')) {
-                    setHtml(e.target.getAttribute('preact-hint-data'));
-                    setTargetBoundingRect(e.target.getBoundingClientRect());
-                }
-            });
-            root.current.addEventListener('mouseout', (e) => {
-                if (e.target instanceof Element && e.target.hasAttribute('preact-hint-data')) {
-                    setHtml(null);
-                    setTargetBoundingRect(null);
-                }
-            });
-        }
-    }, [root]);
+    const onRefChange = useCallback(
+        (node: HTMLDivElement | null) => {
+            setRoot(node);
+            if (root !== null) {
+                // setRootBoundingRect(root.getBoundingClientRect());
+                root.addEventListener('mouseover', (e) => {
+                    if (e.target instanceof Element && e.target.hasAttribute('preact-hint-data')) {
+                        setHtml(e.target.getAttribute('preact-hint-data'));
+                        setTargetBoundingRect(e.target.getBoundingClientRect());
+                    }
+                });
+                root.addEventListener('mouseout', (e) => {
+                    if (e.target instanceof Element && e.target.hasAttribute('preact-hint-data')) {
+                        setHtml(null);
+                        setTargetBoundingRect(null);
+                    }
+                });
+            }
+        },
+        [root],
+    );
 
     return (
-        <div id="preact-hint__root" ref={root} style={{ position: 'relative' }}>
-            {html !== null && rootBoundingRect !== null && targetBoundingRect !== null && (
+        <div id="preact-hint__root" ref={onRefChange} style={{ position: 'relative' }}>
+            {html !== null && root !== null && targetBoundingRect !== null && (
                 <Hint
                     content={html}
                     template={props.template}
-                    rootBoundingRect={rootBoundingRect}
+                    rootBoundingRect={root.getBoundingClientRect()}
                     targetBoundingRect={targetBoundingRect}
                 />
             )}

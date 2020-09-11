@@ -1,8 +1,6 @@
 import { h, VNode } from 'preact';
 import { useEffect, useRef, useState } from 'preact/hooks';
 
-import './hint.css';
-
 interface Props {
     content: string;
     template?: (content: string) => VNode;

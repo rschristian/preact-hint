@@ -9,10 +9,6 @@
     animation: .5s fadeIn;
 }
 
-.fade-out {
-    animation: .5s fadeOut;
-}
-
 .preact-hint__content {
     padding: 10px;
     border-radius: 5px;
@@ -29,53 +25,20 @@
     margin: auto;
     display: block;
     position: absolute;
-    top: 0;
+    top: auto;
     left: 0;
     right: 0;
     bottom: 0;
     border: 5px solid transparent;
-}
-
-.preact-hint--top:after {
-    top: auto;
     border-bottom: none;
     border-top-color: #000;
-}
-
-.preact-hint--left:after {
-    left: auto;
-    border-right: none;
-    border-left-color: #000;
-}
-
-.preact-hint--right:after {
-    right: auto;
-    border-left: none;
-    border-right-color: #000;
-}
-
-.preact-hint--bottom:after {
-    bottom: auto;
-    border-top: none;
-    border-bottom-color: #000;
 }
 
 @keyframes fadeIn {
     from {
         opacity: 0;
     }
-
     to {
         opacity: 1;
-    }
-}
-
-@keyframes fadeOut {
-    from {
-        opacity: 1;
-    }
-
-    to {
-        opacity: 0;
     }
 }

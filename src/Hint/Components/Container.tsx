@@ -1,12 +1,52 @@
-import { h, VNode } from 'preact';
+import { ComponentChild, h, VNode } from 'preact';
+import { useCallback, useState } from 'preact/hooks';
 
-import { Options, overrideDefaults } from '../options';
-import { useEffect } from 'preact/hooks';
+import Hint from './Hint';
 
-export default function Container(props: Partial<Options>): VNode {
-    useEffect(() => {
-        overrideDefaults(props);
-    }, [props]);
+interface Props {
+    children: ComponentChild | ComponentChild[];
+    template?: (content: string) => VNode;
+}
 
-    return <div id="preact-hint__root" style={{ position: 'relative' }} />;
+const attribute = 'data-preact-hint';
+
+export default function Container(props: Props): VNode {
+    const [content, setContent] = useState<string>('');
+    const [containerElement, setContainerElement] = useState<HTMLDivElement | null>(null);
+    const [targetBoundingRect, setTargetBoundingRect] = useState<ClientRect | null>(null);
+
+    const onRefChange = useCallback(
+        (node: HTMLDivElement | null) => {
+            setContainerElement(node);
+            if (containerElement) {
+                containerElement.addEventListener('mouseover', (e) => {
+                    if (e.target instanceof Element && e.target.hasAttribute(attribute)) {
+                        setContent(e.target.getAttribute(attribute) || '');
+                        setTargetBoundingRect(e.target.getBoundingClientRect());
+                    }
+                });
+                containerElement.addEventListener('mouseout', (e) => {
+                    if (e.target instanceof Element && e.target.hasAttribute(attribute)) {
+                        setContent('');
+                        setTargetBoundingRect(null);
+                    }
+                });
+            }
+        },
+        [containerElement],
+    );
+
+    return (
+        <div ref={onRefChange} style={{ position: 'relative' }}>
+            {content && containerElement && targetBoundingRect && (
+                <Hint
+                    content={content}
+                    template={props.template}
+                    rootBoundingRect={containerElement.getBoundingClientRect()}
+                    targetBoundingRect={targetBoundingRect}
+                />
+            )}
+            {props.children}
+        </div>
+    );
 }

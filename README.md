@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://github.com/ryanchristian4427/preact-hint/blob/master/media/carbon.png?raw=true" alt="Preact Hint" width="600" />
+  <img src="https://github.com/ryanchristian4427/preact-hint/blob/master/media/carbon.svg?raw=true" alt="Preact Hint" width="600" />
 </div>
 
 <h1 align="center">Preact Hint</h1>

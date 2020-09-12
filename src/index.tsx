@@ -12,7 +12,7 @@ type Contribution = {
 import data from './data.json';
 
 export default function App(): VNode {
-    const graphData: { total: number; contributions: Contribution[][] } = data;
+    const graphData: { contributions: Contribution[][] } = data;
     const contributionColorArray = ['#ededed', '#62A197', '#428892', '#296887', '#274969'];
 
     function createRects(): VNode[] {

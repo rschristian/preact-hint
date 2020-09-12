@@ -1,12 +1,12 @@
 import { h, VNode } from 'preact';
 import { useEffect, useRef, useState } from 'preact/hooks';
 
-interface Props {
+type Props = {
     content: string;
     template?: (content: string) => VNode;
     rootBoundingRect: ClientRect;
     targetBoundingRect: ClientRect;
-}
+};
 
 export default function Hint(props: Props): VNode {
     const hint = useRef<HTMLSpanElement>(null);

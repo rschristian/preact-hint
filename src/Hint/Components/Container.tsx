@@ -3,10 +3,10 @@ import { useCallback, useState } from 'preact/hooks';
 
 import Hint from './Hint';
 
-interface Props {
+type Props = {
     children: ComponentChild | ComponentChild[];
     template?: (content: string) => VNode;
-}
+};
 
 const attribute = 'data-preact-hint';
 

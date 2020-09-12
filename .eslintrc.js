@@ -47,7 +47,7 @@ module.exports = {
             files: ['*.ts'],
             rules: {
                 '@typescript-eslint/triple-slash-reference': 'off',
-            }
-        }
+            },
+        },
     ],
 };

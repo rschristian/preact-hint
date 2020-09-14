@@ -1,15 +1,16 @@
 import { Fragment, h, VNode } from 'preact';
+import 'bulma/css/bulma.min.css';
 
 import PreactHint from './Hint';
 import './style.css';
+
+import data from './data.json';
 
 type Contribution = {
     date: string;
     count: number;
     intensity: number;
 };
-
-import data from './data.json';
 
 export default function App(): VNode {
     const graphData: { contributions: Contribution[][] } = data;

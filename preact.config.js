@@ -3,7 +3,7 @@ import purgeCss from '@fullhuman/postcss-purgecss';
 export default {
     webpack(config, env, helpers) {
         const purgecss = purgeCss({
-            content: ['./src/**/*.tsx', './src/**/*.ts', './src/**/*.css'],
+            content: ['src/**/*.tsx', 'src/**/*.ts'],
             whitelist: ['html', 'body'],
         });
 

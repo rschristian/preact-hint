@@ -1,13 +1,13 @@
 <div align="center">
-    <a href="https://ryanchristian4427.github.io/preact-hint">
-      <img src="https://github.com/ryanchristian4427/preact-hint/blob/master/media/carbon.svg?raw=true" alt="Preact Hint" width="600" />
+    <a href="https://rschristian.github.io/preact-hint">
+      <img src="https://github.com/rschristian/preact-hint/blob/master/media/carbon.svg?raw=true" alt="Preact Hint" width="600" />
     </a>
 </div>
 
 <h1 align="center">Preact Hint</h1>
 
 <div align="center">
-    <a href="https://github.com/RyanChristian4427/preact-hint/blob/master/LICENSE">
+    <a href="https://github.com/rschristian/preact-hint/blob/master/LICENSE">
         <img alt="NPM" src="https://img.shields.io/npm/l/preact-hint?color=brightgreen">
     </a>
     <a href="https://bundlephobia.com/result?p=preact-hint">
@@ -17,7 +17,7 @@
 
 <br />
 
-Preact Hint is a tiny component library used for displaying tooltips. Try out [the demo](https://ryanchristian4427.github.io/preact-hint)!
+Preact Hint is a tiny component library used for displaying tooltips. Try out [the demo](https://rschristian.github.io/preact-hint)!
 
 ## Install
 

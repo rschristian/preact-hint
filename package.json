@@ -9,8 +9,8 @@
   "types": "dist/index.d.ts",
   "license": "MIT",
   "description": "Tooltip Component for Preact",
-  "homepage": "https://ryanchristian4427.github.io/preact-hint",
-  "repository": "https://github.com/RyanChristian4427/preact-hint",
+  "homepage": "https://rschristian.github.io/preact-hint",
+  "repository": "https://github.com/rschristian/preact-hint",
   "keywords": [
     "preact",
     "hint",

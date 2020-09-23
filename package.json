@@ -41,7 +41,7 @@
     "gh-pages": "^3.1.0",
     "microbundle": "^0.12.3",
     "preact": "^10.4.7",
-    "preact-cli": "^3.0.1",
+    "preact-cli": "3.0.1",
     "preact-render-to-string": "^5.1.9",
     "prettier": "^2.0.5",
     "sirv-cli": "^1.0.6",

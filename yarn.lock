@@ -7139,7 +7139,7 @@ postcss@^6.0.1:
     source-map "^0.6.1"
     supports-color "^5.4.0"
 
-preact-cli@^3.0.1:
+preact-cli@3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/preact-cli/-/preact-cli-3.0.1.tgz#e8913998df38854e1f1efde21aa1da1e66146b84"
   integrity sha512-C5fvHo/P9MScpUYp2cwu9w/UBQsVwnOugIbcikY6MS+nEiNX9nE4xpnEghUuZxC+Mr8R2z1WiMAWKQQA4/D78A==

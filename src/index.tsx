@@ -1,74 +1,91 @@
-import { Fragment, h, VNode } from 'preact';
+import { h, VNode } from 'preact';
 import 'bulma/css/bulma.min.css';
 
 import PreactHint from './Hint';
 import './style.css';
 
-import data from './data.json';
-
-type Contribution = {
-    date: string;
-    count: number;
-    intensity: number;
-};
-
 export default function App(): VNode {
-    const graphData: { contributions: Contribution[][] } = data;
-    const contributionColorArray = ['#ededed', '#62A197', '#428892', '#296887', '#274969'];
-
-    function createRects(): VNode[] {
-        return graphData.contributions
-            .map((week) =>
-                week.map((day, y) => (
-                    <rect
-                        key={day.date}
-                        x="0"
-                        y={(12 + 2) * y}
-                        width={12}
-                        height={12}
-                        fill={contributionColorArray[day.intensity]}
-                        data-preact-hint={[day.count, day.date]}
-                    />
-                )),
-            )
-            .map((week, x) => (
-                <g key={x} transform={`translate(${(12 + 2) * x}, 0)`}>
-                    {week}
-                </g>
-            ));
-    }
-
     return (
-        <Fragment>
+        <div id="app">
             <section class="hero">
                 <div class="hero-body">
-                    <div class="container">
-                        <h1 class="is-size-2">Preact Hint</h1>
+                    <div class="container has-text-centered">
+                        <h2 class="is-size-2 has-text-weight-bold">preact-hint</h2>
+                        <h6 class="is-size-6">Lightweight and extensible tooltip component for Preact</h6>
+                        <a class="button" href="https://github.com/rschristian/preact-hint">
+                            Check it out on GitHub
+                        </a>
                     </div>
                 </div>
             </section>
-            <div class="container">
-                <div class="tile box preview">
-                    <PreactHint
-                        template={(content: string): VNode => {
-                            const stringPieces = content.split(',');
-                            return (
-                                <Fragment>
-                                    <strong>{stringPieces[0]} Contributions</strong> on {stringPieces[1]}
-                                </Fragment>
-                            );
-                        }}
-                    >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="100%"
-                            viewBox={`0 0 ${53 * (12 + 2) - 2} ${(12 + 2) * 7 - 2}`}
-                        >
-                            {createRects()}
-                        </svg>
+            <div class="section main-content">
+                <div class="container">
+                    <h3 class="is-size-3">Preact Hint</h3>
+                    <div class="mt-2">
+                        <a class="mr-2" href="https://github.com/rschristian/preact-hint/blob/master/LICENSE">
+                            <img alt="NPM" src="https://img.shields.io/npm/l/preact-hint?color=brightgreen" />
+                        </a>
+                        <a href="https://bundlephobia.com/result?p=preact-hint">
+                            <img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/preact-hint" />
+                        </a>
+                    </div>
+                    <div class="mt-2">
+                        Preact-Hint is a lightweight and extensible tooltip component for{' '}
+                        <a href="https://preactjs.com">Preact</a>. It was designed with a focus on size, adaptability,
+                        and ease of use.
+                    </div>
+                    <PreactHint>
+                        <button class="button mt-4" data-preact-hint="Hello World!">
+                            Hover Me!
+                        </button>
                     </PreactHint>
+                    <h4 class="is-size-4 mt-5 mb-2">Installation</h4>
+                    <pre>
+                        <code>yarn add preact-hint</code>
+                    </pre>
+                    <h4 class="is-size-4 mt-5 mb-2">General Usage</h4>
+                    <pre>
+                        <code>{`import PreactHint from 'preact-hint';
+import 'preact-hint/dist/index.css';
+
+export default function App() {
+    return (
+        <PreactHint>
+            <button data-preact-hint="Hello World!">Hover over me!</button>
+        </PreactHint>
+    );
+}`}</code>
+                    </pre>
+                    <h4 class="is-size-4 mt-5 mb-2">BYOT (Bring Your Own Template) Usage</h4>
+                    <pre>
+                        <code>{`import PreactHint from 'preact-hint';
+import 'preact-hint/dist/index.css';
+
+export default function App() {
+    return (
+        <PreactHint
+            template={(content) => {
+                const stringPieces = content.split(',');
+                return (
+                    <Fragment>
+                        <strong>{stringPieces[0]} Contributions</strong> on 
+                        {new Date(stringPieces[1]).toLocaleDateString()}
+                    </Fragment>
+                );
+            }}
+        >
+            <button data-preact-hint={['0', '2019-09-14']}>Hover over me!</button>
+        </PreactHint>
+    );
+}`}</code>
+                    </pre>
                 </div>
             </div>
-        </Fragment>
+            <footer class="footer">
+                <div class="container has-text-centered">
+                    <span>&copy; 2020 Ryan Christian</span>
+                </div>
+            </footer>
+        </div>
     );
 }

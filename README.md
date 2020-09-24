@@ -8,16 +8,22 @@
 
 <div align="center">
     <a href="https://github.com/rschristian/preact-hint/blob/master/LICENSE">
-        <img alt="NPM" src="https://img.shields.io/npm/l/preact-hint?color=brightgreen">
+        <img alt="NPM" src="https://img.shields.io/npm/l/preact-hint?color=brightgreen" />
     </a>
     <a href="https://bundlephobia.com/result?p=preact-hint">
-        <img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/preact-hint">
+        <img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/preact-hint" />
+    </a>
+    <a href="https://npmjs.org/package/preact-hint">
+        <img alt="0 Dependencies" src="https://img.shields.io/david/rschristian/preact-hint.svg" />
+    </a>
+    <a href="https://npmjs.org/package/preact-hint">
+        <img alt="TS Support" src="https://badgen.net/npm/types/preact-hint" />
     </a>
 </div>
 
 <br />
 
-Preact Hint is a tiny component library used for displaying tooltips. Try out [the demo](https://rschristian.github.io/preact-hint)!
+Preact-Hint is a tiny component library used for displaying tooltips. Try out [the demo](https://rschristian.github.io/preact-hint)!
 
 ## Install
 

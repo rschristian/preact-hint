@@ -12,7 +12,7 @@ export default {
 
         const postCss = helpers.getLoadersByName(config, 'postcss-loader')[0];
         if (env.production) {
-            // config.output.publicPath = 'https://rschristian.github.io/preact-hint';
+            config.output.publicPath = 'https://rschristian.github.io/preact-hint';
             postCss.loader.options.plugins.push(purgecss);
         }
     },

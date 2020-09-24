@@ -19,11 +19,11 @@
   ],
   "sideEffects": false,
   "scripts": {
-    "serve:dev": "preact watch -p 3000 --template src/template.html",
+    "serve:dev": "preact watch -p 3000 --template src/template.html --refresh",
     "build": "microbundle --entry src/Hint/index.ts --css-modules false --tsconfig tsconfig.build.json",
-    "build:demo": "preact build --template src/template.html --no-prerender --no-sw",
+    "build:demo": "preact build --template src/template.html --no-sw",
     "serve:demo": "sirv build -p 3000 --single",
-    "lint": "eslint '{src,test}/**/*.{js,ts,tsx}' --fix && prettier 'src/**/*.json' '*.json' --write"
+    "lint": "eslint '{src,test}/**/*.{js,ts,tsx}' --fix && prettier 'src/**/*.css' '*.json' --write"
   },
   "peerDependencies": {
     "preact": "*"
@@ -41,7 +41,7 @@
     "gh-pages": "^3.1.0",
     "microbundle": "^0.12.3",
     "preact": "^10.4.7",
-    "preact-cli": "3.0.1",
+    "preact-cli": "3.0.2",
     "preact-render-to-string": "^5.1.9",
     "prettier": "^2.0.5",
     "sirv-cli": "^1.0.6",

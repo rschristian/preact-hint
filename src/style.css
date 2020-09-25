@@ -15,71 +15,72 @@ html {
   background-image: linear-gradient(150deg, var(--theme-navy), var(--theme-blue));
 }
 
-.hero h2 {
-  color: var(--theme-steel);
+.hero {
+  h2 {
+    color: var(--theme-steel);
+  }
+
+  h6 {
+    color: #bbb;
+  }
+
+  a {
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 2rem;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.2);
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    &:active,
+    &:focus {
+      background: #ddd;
+      background-image: linear-gradient(#eee, #ddd);
+      border-color: #bbb;
+      color: var(--theme-navy);
+    }
+  }
 }
 
-.hero h6 {
-  color: #bbb;
-}
+.main-content {
+  h3,
+  h4 {
+    color: var(--theme-blue-hover);
+  }
 
-.hero a {
-  background: rgba(255, 255, 255, 0.08);
-  color: rgba(255, 255, 255, 0.7);
-  margin-top: 2rem;
-}
+  .button {
+    background: var(--theme-blue);
+    color: var(--theme-steel);
+    border-radius: 10px;
 
-.hero a:hover {
-  background: rgba(255, 255, 255, 0.2);
-  color: rgba(255, 255, 255, 0.8);
-}
+    &:hover,
+    &:focus {
+      background: var(--theme-blue-hover);
+      color: var(--theme-steel);
+    }
+  }
 
-.hero a:active {
-  background: #ddd;
-  background-image: linear-gradient(#eee, #ddd);
-  border-color: #bbb;
-  color: var(--theme-navy);
-}
+  .preact-hint:after {
+    border: 10px solid transparent;
+    border-bottom: none;
+    border-top-color: #000;
+  }
 
-.main-content h4 {
-  color: var(--theme-blue-hover);
-}
+  .preact-hint__content {
+    font-size: 0.75em;
 
-button.button {
-  background: var(--theme-blue);
-  color: var(--theme-steel);
-  border-radius: 10px;
-}
+    strong {
+      color: #fff;
+    }
+  }
 
-button.button:hover {
-  background: var(--theme-blue-hover);
-  color: var(--theme-steel);
-}
-
-button.button:focus {
-  background: var(--theme-blue-hover);
-  color: var(--theme-steel);
-}
-
-.preact-hint:after {
-  border: 10px solid transparent;
-  border-bottom: none;
-  border-top-color: #000;
-}
-
-.preact-hint__content {
-  /* padding: 5px; */
-  font-size: 0.75em;
-}
-
-strong {
-  color: #fff;
-}
-
-pre {
-  padding: 0.8rem;
-  background-color: #ddd;
-  border: 1px solid #aaa;
+  pre {
+    padding: 0.8rem;
+    background-color: #ddd;
+    border: 1px solid #aaa;
+  }
 }
 
 .footer {

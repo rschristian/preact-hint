@@ -21,12 +21,18 @@ export default function App(): VNode {
             <div class="section main-content">
                 <div class="container">
                     <h3 class="is-size-3">Preact Hint</h3>
-                    <div class="mt-2">
-                        <a class="mr-2" href="https://github.com/rschristian/preact-hint/blob/master/LICENSE">
+                    <div class="shields mt-1">
+                        <a href="https://github.com/rschristian/preact-hint/blob/master/LICENSE">
                             <img alt="NPM" src="https://img.shields.io/npm/l/preact-hint?color=brightgreen" />
                         </a>
                         <a href="https://bundlephobia.com/result?p=preact-hint">
                             <img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/preact-hint" />
+                        </a>
+                        <a href="https://npmjs.org/package/preact-hint">
+                            <img alt="0 Dependencies" src="https://img.shields.io/david/rschristian/preact-hint.svg" />
+                        </a>
+                        <a href="https://npmjs.org/package/preact-hint">
+                            <img alt="TS Support" src="https://badgen.net/npm/types/preact-hint" />
                         </a>
                     </div>
                     <div class="mt-2">

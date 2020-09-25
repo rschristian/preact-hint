@@ -50,6 +50,12 @@ html {
     color: var(--theme-blue-hover);
   }
 
+  .shields {
+    a:not(:last-child) {
+      margin-right: 0.25rem;
+    }
+  }
+
   .button {
     background: var(--theme-blue);
     color: var(--theme-steel);

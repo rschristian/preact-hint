@@ -17,6 +17,5 @@ export default {
             config.output.publicPath = 'https://rschristian.github.io/preact-hint';
             postCss.loader.options.plugins.push(purgecss);
         }
-        console.log(postCss.loader.options.plugins);
     },
 };

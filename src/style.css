@@ -3,6 +3,8 @@
   --theme-blue: #225862;
   --theme-blue-hover: #428892;
   --theme-steel: #ededed;
+
+  --container-max-width: 960px;
 }
 
 html {
@@ -45,6 +47,10 @@ html {
 }
 
 .main-content {
+  .container {
+    max-width: var(--container-max-width);
+  }
+
   h3,
   h4 {
     color: var(--theme-blue-hover);
@@ -86,6 +92,7 @@ html {
     padding: 0.8rem;
     background-color: #ddd;
     border: 1px solid #aaa;
+    max-width: var(--container-max-width);
   }
 }
 

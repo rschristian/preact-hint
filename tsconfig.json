@@ -7,8 +7,7 @@
     "jsxFactory": "h",
     "moduleResolution": "node",
     "noImplicitAny": true,
-    "resolveJsonModule": true,
     "strict": true
   },
-  "include": ["src"]
+  "include": ["src", "demo"]
 }

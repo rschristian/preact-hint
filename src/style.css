@@ -1,102 +1,44 @@
-:root {
-  --theme-navy: #253746;
-  --theme-blue: #225862;
-  --theme-blue-hover: #428892;
-  --theme-steel: #ededed;
-
-  --container-max-width: 960px;
+.preact-hint {
+  padding-bottom: 5px;
+  position: absolute;
+  z-index: 9999;
+  cursor: default;
 }
 
-html {
-  background-color: var(--theme-steel);
-  overflow-y: auto;
+.preact-hint__fade-in {
+  animation: 0.5s fadeIn;
 }
 
-.hero,
-.footer {
-  background-image: linear-gradient(150deg, var(--theme-navy), var(--theme-blue));
+.preact-hint__content {
+  padding: 10px;
+  border-radius: 5px;
+  background: #000;
+  color: #fff;
+  display: block;
+  white-space: nowrap;
 }
 
-.hero {
-  h2 {
-    color: var(--theme-steel);
-  }
-
-  h6 {
-    color: #bbb;
-  }
-
-  a {
-    background: rgba(255, 255, 255, 0.08);
-    color: rgba(255, 255, 255, 0.7);
-    margin-top: 2rem;
-
-    &:hover {
-      background: rgba(255, 255, 255, 0.2);
-      color: rgba(255, 255, 255, 0.8);
-    }
-
-    &:active,
-    &:focus {
-      background: #ddd;
-      background-image: linear-gradient(#eee, #ddd);
-      border-color: #bbb;
-      color: var(--theme-navy);
-    }
-  }
+.preact-hint:after {
+  content: '';
+  width: 0;
+  height: 0;
+  margin: auto;
+  display: block;
+  position: absolute;
+  top: auto;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 5px solid transparent;
+  border-bottom: none;
+  border-top-color: #000;
 }
 
-.main-content {
-  .container {
-    max-width: var(--container-max-width);
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
-
-  h3,
-  h4 {
-    color: var(--theme-blue-hover);
+  to {
+    opacity: 1;
   }
-
-  .shields {
-    a:not(:last-child) {
-      margin-right: 0.25rem;
-    }
-  }
-
-  .button {
-    background: var(--theme-blue);
-    color: var(--theme-steel);
-    border-radius: 10px;
-
-    &:hover,
-    &:focus {
-      background: var(--theme-blue-hover);
-      color: var(--theme-steel);
-    }
-  }
-
-  .preact-hint:after {
-    border: 10px solid transparent;
-    border-bottom: none;
-    border-top-color: #000;
-  }
-
-  .preact-hint__content {
-    font-size: 0.75em;
-
-    strong {
-      color: #fff;
-    }
-  }
-
-  pre {
-    padding: 0.8rem;
-    background-color: #ddd;
-    border: 1px solid #aaa;
-    max-width: var(--container-max-width);
-  }
-}
-
-.footer {
-  padding: 0.25rem;
-  color: var(--theme-steel);
 }

@@ -7147,10 +7147,10 @@ postcss@^6.0.1:
     source-map "^0.6.1"
     supports-color "^5.4.0"
 
-preact-cli@3.0.2:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/preact-cli/-/preact-cli-3.0.2.tgz#aca9e5dbf5690a3fd6008e027442738bbd210c49"
-  integrity sha512-yKYnppU3rHH7TzdD5QjWvE+ibqhmRt5XNCG+aBumecCaDOdWMSBjvBojHrxV8Pvwqi3HxpmeHtpeCg0eGnAaew==
+preact-cli@^3.0.3:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/preact-cli/-/preact-cli-3.0.3.tgz#b3cb0a229a5226e0983ef12dbf2ece97502b3938"
+  integrity sha512-U4WY+nUmKvedr+/V2HrC77kQIkKvFYvmdCppfCPlJ8xRmfo1J1soaYccGC6cy+C6+6YzvDQtIPKuSH+aVGjMfQ==
   dependencies:
     "@babel/core" "^7.9.0"
     "@babel/plugin-proposal-class-properties" "^7.8.3"

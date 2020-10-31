@@ -7,6 +7,14 @@
   "esmodule": "dist/hint.modern.js",
   "umd:main": "dist/hint.umd.js",
   "types": "dist/hint.d.ts",
+  "exports": {
+    ".": {
+      "browser": "./dist/hint.module.js",
+      "umd": "./dist/hint.umd.js",
+      "import": "./dist/hint.module.js",
+      "require": "./dist/hint.js"
+    }
+  },
   "license": "MIT",
   "description": "Tooltip Component for Preact",
   "homepage": "https://rschristian.github.io/preact-hint",
@@ -17,13 +25,19 @@
     "tooltip",
     "component"
   ],
+  "files": [
+    "dist",
+    "LICENSE",
+    "package.json",
+    "README.md"
+  ],
   "sideEffects": false,
   "scripts": {
-    "serve:dev": "preact watch -p 3000 --template src/template.html --refresh",
-    "build": "microbundle --entry src/Hint/index.ts --css-modules false --tsconfig tsconfig.build.json",
-    "build:demo": "preact build --template src/template.html --no-sw",
+    "serve:dev": "preact watch --src demo -p 3000 --template demo/template.html --refresh",
+    "build": "microbundle --entry src/index.ts --css-modules false --tsconfig tsconfig.build.json",
+    "build:demo": "preact build --src demo --template demo/template.html --no-sw",
     "serve:demo": "sirv build -p 3000 --single",
-    "lint": "eslint '{src,test}/**/*.{js,ts,tsx}' --fix && prettier 'src/**/*.css' '*.json' --write"
+    "lint": "eslint '{src,demo}/**/*.{ts,tsx}' --fix && prettier '{src,demo}/**/*.css' '*.json' --write"
   },
   "peerDependencies": {
     "preact": "*"
@@ -42,7 +56,7 @@
     "microbundle": "^0.12.3",
     "postcss-nested": "4.2.3",
     "preact": "^10.4.7",
-    "preact-cli": "3.0.2",
+    "preact-cli": "^3.0.3",
     "preact-render-to-string": "^5.1.9",
     "prettier": "^2.0.5",
     "sirv-cli": "^1.0.6",

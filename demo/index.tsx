@@ -1,7 +1,7 @@
 import { h, VNode } from 'preact';
 import 'bulma/css/bulma.min.css';
 
-import PreactHint from './Hint';
+import PreactHint from '../src';
 import './style.css';
 
 export default function App(): VNode {

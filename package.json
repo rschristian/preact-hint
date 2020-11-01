@@ -1,6 +1,6 @@
 {
   "name": "preact-hint",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "source": "src/index.ts",
   "main": "dist/hint.js",
   "module": "dist/hint.module.js",

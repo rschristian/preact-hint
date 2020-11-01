@@ -1,12 +1,12 @@
 {
   "name": "preact-hint",
   "version": "0.1.4",
-  "source": "src/Hint/index.tsx",
+  "source": "src/index.ts",
   "main": "dist/hint.js",
   "module": "dist/hint.module.js",
   "esmodule": "dist/hint.modern.js",
   "umd:main": "dist/hint.umd.js",
-  "types": "dist/hint.d.ts",
+  "types": "dist/index.d.ts",
   "exports": {
     ".": {
       "browser": "./dist/hint.module.js",
@@ -34,7 +34,7 @@
   "sideEffects": false,
   "scripts": {
     "serve:dev": "preact watch --src demo -p 3000 --template demo/template.html --refresh",
-    "build": "microbundle --entry src/index.ts --css-modules false --tsconfig tsconfig.build.json",
+    "build": "microbundle --css-modules false --tsconfig tsconfig.build.json",
     "build:demo": "preact build --src demo --template demo/template.html --no-sw",
     "serve:demo": "sirv build -p 3000 --single",
     "lint": "eslint '{src,demo}/**/*.{ts,tsx}' --fix && prettier '{src,demo}/**/*.css' '*.json' --write"

@@ -12,7 +12,8 @@ type Props = {
 
 export default function Hint(props: Props): VNode {
     const hint = useRef<HTMLSpanElement>(null);
-    const [hintWidth, setHintWidth] = useState(0);
+    // Render way off-screen to prevent rubber banding from initial (and unavoidable) render.
+    const [hintWidth, setHintWidth] = useState(10000);
 
     useEffect(() => {
         if (hint.current) {

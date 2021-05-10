@@ -13,7 +13,8 @@
       "umd": "./dist/hint.umd.js",
       "import": "./dist/hint.module.js",
       "require": "./dist/hint.js"
-    }
+    },
+    "./dist/hint.css": "./dist/hint.css"
   },
   "license": "MIT",
   "description": "Tooltip Component for Preact",
@@ -61,5 +62,6 @@
     "prettier": "^2.0.5",
     "sirv-cli": "^1.0.6",
     "typescript": "^3.9.3"
-  }
+  },
+  "dependencies": {}
 }

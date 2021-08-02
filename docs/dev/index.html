@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full text-secondary bg-steel">
+    <head>
+        <meta charset="utf-8" />
+        <title>Preact Hint</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="description" content="Preact Hint Docs" />
+        <link rel="shortcut icon" href="/assets/favicon.ico" />
+        <link rel="stylesheet" href="/preact-hint.css" />
+        <style>
+            .bash.function,
+            .token.keyword {
+                color: hsl(0, 50%, 50%);
+            }
+
+            .token.tag {
+                color: #e09f3e;
+            }
+
+            .token.string,
+            .token.attr-value {
+                color: #4b88a2;
+            }
+
+            .token.punctuation {
+                color: #ccc;
+            }
+        </style>
+        <style></style>
+    </head>
+    <body class="h-full overflow-x-hidden">
+        <div class="flex flex-col h-full">
+            <section class="bg-gradient-to-br from-primary-dark to-primary">
+                <div class="py-12 px-4">
+                    <div class="mx-auto text-center">
+                        <h1 class="text-2xl text-5xl text-steel font-bold">Preact Hint</h1>
+                        <h2 class="text-steel-dim">
+                            Lightweight and extensible tooltip component for Preact
+                        </h2>
+                        <a
+                            class="
+                                mt-8
+                                px-4
+                                py-2
+                                inline-flex
+                                rounded-md
+                                text-steel
+                                border-1 border-solid border-steel
+                                bg-white bg-opacity-10
+                                hover:text-white
+                                hover:bg-white
+                                hover:bg-opacity-20
+                                hover:border-steel-dimmer
+                            "
+                            href="https://github.com/rschristian/preact-hint"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            Check it out on GitHub
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <section class="px-6 py-12 flex-auto">
+                <div class="max-w-screen-lg mx-auto">
+                    <h1 class="mb-2 text-4xl text-center lg:text-left text-primary">Preact Hint</h1>
+                    <div class="flex mb-6 justify-center lg:justify-left" style="height: 20px;">
+                        <a
+                            class="mr-1"
+                            href="https://github.com/rschristian/preact-hint/blob/master/LICENSE"
+                        >
+                            <img
+                                alt="NPM"
+                                src="https://img.shields.io/npm/l/preact-hint?color=%23bf4040"
+                            />
+                        </a>
+                        <a class="mr-1" href="https://bundlephobia.com/result?p=preact-hint">
+                            <img
+                                alt="npm bundle size"
+                                src="https://img.shields.io/bundlephobia/minzip/preact-hint?color=%23bf4040"
+                            />
+                        </a>
+                        <a class="mr-1" href="https://npmjs.org/package/preact-hint">
+                            <img
+                                alt="0 Dependencies"
+                                src="https://img.shields.io/david/rschristian/preact-hint?color=%23bf4040"
+                            />
+                        </a>
+                        <a href="https://npmjs.org/package/preact-hint">
+                            <img
+                                alt="TS Support"
+                                src="https://img.shields.io/npm/types/preact-hint?color=%23bf4040"
+                            />
+                        </a>
+                    </div>
+                    <p class="text-xl mb-2">
+                        Preact-Hint is a lightweight and extensible tooltip component for
+                        <a
+                            class="text-primary hover:text-primary-light underline"
+                            href="https://preactjs.com"
+                            >Preact</a
+                        >. It was designed with a focus on size, adaptability, and ease of use.
+                    </p>
+                    <div id="hint-demo" class="mt-4">
+                        <div style="position: relative">
+                            <button
+                                class="px-4 py-2 bg-primary text-steel rounded-lg"
+                                data-preact-hint="Hello World!"
+                            >
+                                Hover Me!
+                            </button>
+                        </div>
+                    </div>
+                    <h4 class="mt-6 mb-4 text-2xl text-primary">Installation</h4>
+                    <div class="p-2 text-code-primary bg-code-background rounded-lg">
+                        <code
+                            >$ <span class="bash function">yarn</span>
+                            <span class="bash function">add</span> preact-hint</code
+                        >
+                    </div>
+                    <h4 class="mt-6 mb-4 text-2xl text-primary">General Usage</h4>
+                    <pre class="p-4 text-code-primary bg-code-background rounded-lg overflow-x-scroll">
+<code class="language-jsx">import PreactHint from 'preact-hint';
+import 'preact-hint/dist/index.css';
+
+export default function App() {
+    return (
+        &lt;PreactHint&gt;
+            &lt;button data-preact-hint="Hello World!"&gt;Hover over me!&lt;/button&gt;
+        &lt;/PreactHint&gt;
+    );
+}</code>
+</pre>
+                    <h4 class="mt-6 mb-4 text-2xl text-primary">Bring Your Own Template Usage</h4>
+                    <pre class="p-4 text-code-primary bg-code-background rounded-lg overflow-x-scroll">
+<code class="language-jsx">import PreactHint from 'preact-hint';
+import 'preact-hint/dist/index.css';
+
+export default function App() {
+    return (
+        &lt;PreactHint
+            template={(content) =&gt; {
+                const stringPieces = content.split(',');
+                return (
+                    &lt;Fragment&gt;
+                        <strong>{stringPieces[0]} Contributions</strong> on 
+                        {new Date(stringPieces[1]).toLocaleDateString()}
+                    &lt;/Fragment&gt;
+                );
+            }}
+        &gt;
+            &lt;button data-preact-hint={['0', '2019-09-14']}&gt;Hover over me!&lt;/button&gt;
+        &lt;/PreactHint&gt;
+    );
+}</code>
+                    </pre>
+                </div>
+            </section>
+            <footer class="p-1 bg-gradient-to-br from-primary-dark to-primary">
+                <div class="text-center text-steel">
+                    <span>&copy; 2021 Ryan Christian</span>
+                </div>
+            </footer>
+        </div>
+
+        <script src="/prism.js"></script>
+        <script type="module">
+            import { hydrate } from 'https://cdn.skypack.dev/preact';
+            import { html } from 'https://cdn.skypack.dev/htm/preact';
+            import PreactHint from '/preact-hint.js';
+            hydrate(
+                html`
+                    <${PreactHint}>
+                        <button class="px-4 py-2 bg-primary text-steel rounded-lg" data-preact-hint="Hello World!">
+                            Hover Me!
+                        </button>
+                    </${PreactHint}>
+                `,
+                document.getElementById('hint-demo'),
+            );
+        </script>
+    </body>
+</html>

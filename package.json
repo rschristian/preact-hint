@@ -1,20 +1,13 @@
 {
   "name": "preact-hint",
   "version": "0.1.6",
-  "source": "src/index.ts",
-  "main": "dist/hint.js",
-  "module": "dist/hint.module.js",
-  "esmodule": "dist/hint.modern.js",
-  "umd:main": "dist/hint.umd.js",
+  "source": "src/index.tsx",
   "types": "dist/index.d.ts",
+  "type": "module",
   "exports": {
-    ".": {
-      "browser": "./dist/hint.module.js",
-      "umd": "./dist/hint.umd.js",
-      "import": "./dist/hint.module.js",
-      "require": "./dist/hint.js"
-    },
-    "./dist/hint.css": "./dist/hint.css"
+    ".": "./dist/preact-hint.js",
+    "./style.css": "./dist/style.css",
+    "./dist/style.css": "./dist/style.css"
   },
   "license": "MIT",
   "description": "Tooltip Component for Preact",
@@ -34,34 +27,26 @@
   ],
   "sideEffects": false,
   "scripts": {
-    "serve:dev": "preact watch --src demo -p 3000 --template demo/template.html --refresh",
-    "build": "microbundle --css-modules false --tsconfig tsconfig.build.json",
-    "build:demo": "preact build --src demo --template demo/template.html --no-sw",
-    "serve:demo": "sirv build -p 3000 --single",
-    "lint": "eslint '{src,demo}/**/*.{ts,tsx}' --fix && prettier '{src,demo}/**/*.css' '*.json' --write"
+    "build": "microbundle -f modern --no-sourcemap && mv dist/preact-hint.css dist/style.css",
+    "build:docs": "yarn build && cp dist/{preact-hint.js,style.css} docs/dev && node docs/dev/post-build.js && node docs/dev/twind.processor.js",
+    "serve:dev": "sirv docs -p 3000 -D & yarn dev:lib & yarn dev:twind",
+    "dev:lib": "microbundle -f modern --no-sourcemap -o docs/dev --watch & chokidar 'docs/dev/preact-hint.js' -c 'node docs/dev/post-build.js'",
+    "dev:twind": "chokidar 'docs/dev/index.html' -c 'node docs/dev/twind.processor.js'",
+    "format": "prettier '{src,docs}/**/*.{html,css,js}' '*.json' --write"
   },
   "peerDependencies": {
     "preact": "*"
   },
   "devDependencies": {
-    "@fullhuman/postcss-purgecss": "^2.3.0",
-    "@typescript-eslint/eslint-plugin": "2.33.0",
-    "@typescript-eslint/parser": "2.33.0",
-    "bulma": "^0.9.0",
-    "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.11.0",
-    "eslint-plugin-prettier": "^3.1.3",
-    "eslint-plugin-react": "^7.20.0",
-    "eslint-plugin-react-hooks": "^4.0.2",
-    "gh-pages": "^3.1.0",
-    "microbundle": "^0.12.3",
-    "postcss-nested": "4.2.3",
-    "preact": "^10.4.7",
-    "preact-cli": "^3.0.3",
-    "preact-render-to-string": "^5.1.9",
-    "prettier": "^2.0.5",
-    "sirv-cli": "^1.0.6",
-    "typescript": "^3.9.3"
+    "chokidar-cli": "^3.0.0",
+    "html-minifier-terser": "^5.1.1",
+    "microbundle": "^0.13.3",
+    "preact": "^10.5.14",
+    "prettier": "^2.3.2",
+    "prettier-config-rschristian": "^0.1.1",
+    "sirv-cli": "^1.0.12",
+    "twind": "^0.16.16",
+    "typescript": "^4.3.5"
   },
-  "dependencies": {}
+  "prettier": "prettier-config-rschristian"
 }

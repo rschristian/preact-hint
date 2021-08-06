@@ -35,7 +35,7 @@
             <section class="bg-gradient-to-br from-primary-dark to-primary">
                 <div class="py-12 px-4">
                     <div class="mx-auto text-center">
-                        <h1 class="text-2xl text-5xl text-steel font-bold">Preact Hint</h1>
+                        <h1 class="mb-2 text-2xl text-5xl text-steel font-bold">Preact Hint</h1>
                         <h2 class="text-steel-dim">
                             Lightweight and extensible tooltip component for Preact
                         </h2>
@@ -63,65 +63,64 @@
                     </div>
                 </div>
             </section>
-            <section class="px-6 py-12 flex-auto">
-                <div class="max-w-screen-lg mx-auto">
-                    <h1 class="mb-2 text-4xl text-center lg:text-left text-primary">Preact Hint</h1>
-                    <div class="flex mb-6 justify-center lg:justify-left" style="height: 20px;">
-                        <a
-                            class="mr-1"
-                            href="https://github.com/rschristian/preact-hint/blob/master/LICENSE"
+            <main class="max-w-screen-lg mx-auto px-6 py-12 flex-auto">
+                <h1 class="mb-2 text-4xl text-center lg:text-left text-primary">Preact Hint</h1>
+                <div class="flex mb-6 justify-center lg:justify-left" style="height: 20px;">
+                    <a
+                        class="mr-1"
+                        href="https://github.com/rschristian/preact-hint/blob/master/LICENSE"
+                    >
+                        <img
+                            alt="NPM"
+                            src="https://img.shields.io/npm/l/preact-hint?color=%23bf4040"
+                        />
+                    </a>
+                    <a class="mr-1" href="https://bundlephobia.com/result?p=preact-hint">
+                        <img
+                            alt="npm bundle size"
+                            src="https://img.shields.io/bundlephobia/minzip/preact-hint?color=%23bf4040"
+                        />
+                    </a>
+                    <a class="mr-1" href="https://npmjs.org/package/preact-hint">
+                        <img
+                            alt="0 Dependencies"
+                            src="https://img.shields.io/david/rschristian/preact-hint?color=%23bf4040"
+                        />
+                    </a>
+                    <a href="https://npmjs.org/package/preact-hint">
+                        <img
+                            alt="TS Support"
+                            src="https://img.shields.io/npm/types/preact-hint?color=%23bf4040"
+                        />
+                    </a>
+                </div>
+                <p class="text-xl mb-2">
+                    Preact-Hint is a lightweight and extensible tooltip component for
+                    <a
+                        class="text-primary hover:text-primary-light underline"
+                        href="https://preactjs.com"
+                        >Preact</a
+                    >. It was designed with a focus on size, adaptability, and ease of use.
+                </p>
+                <div id="hint-demo" class="mt-4">
+                    <div style="position: relative">
+                        <button
+                            class="px-4 py-2 bg-primary text-steel rounded-lg"
+                            data-preact-hint="Hello World!"
                         >
-                            <img
-                                alt="NPM"
-                                src="https://img.shields.io/npm/l/preact-hint?color=%23bf4040"
-                            />
-                        </a>
-                        <a class="mr-1" href="https://bundlephobia.com/result?p=preact-hint">
-                            <img
-                                alt="npm bundle size"
-                                src="https://img.shields.io/bundlephobia/minzip/preact-hint?color=%23bf4040"
-                            />
-                        </a>
-                        <a class="mr-1" href="https://npmjs.org/package/preact-hint">
-                            <img
-                                alt="0 Dependencies"
-                                src="https://img.shields.io/david/rschristian/preact-hint?color=%23bf4040"
-                            />
-                        </a>
-                        <a href="https://npmjs.org/package/preact-hint">
-                            <img
-                                alt="TS Support"
-                                src="https://img.shields.io/npm/types/preact-hint?color=%23bf4040"
-                            />
-                        </a>
+                            Hover Me!
+                        </button>
                     </div>
-                    <p class="text-xl mb-2">
-                        Preact-Hint is a lightweight and extensible tooltip component for
-                        <a
-                            class="text-primary hover:text-primary-light underline"
-                            href="https://preactjs.com"
-                            >Preact</a
-                        >. It was designed with a focus on size, adaptability, and ease of use.
-                    </p>
-                    <div id="hint-demo" class="mt-4">
-                        <div style="position: relative">
-                            <button
-                                class="px-4 py-2 bg-primary text-steel rounded-lg"
-                                data-preact-hint="Hello World!"
-                            >
-                                Hover Me!
-                            </button>
-                        </div>
-                    </div>
-                    <h4 class="mt-6 mb-4 text-2xl text-primary">Installation</h4>
-                    <div class="p-2 text-code-primary bg-code-background rounded-lg">
-                        <code
-                            >$ <span class="bash function">yarn</span>
-                            <span class="bash function">add</span> preact-hint</code
-                        >
-                    </div>
-                    <h4 class="mt-6 mb-4 text-2xl text-primary">General Usage</h4>
-                    <pre class="p-4 text-code-primary bg-code-background rounded-lg overflow-x-scroll">
+                </div>
+                <h4 class="mt-6 mb-4 text-2xl text-primary">Installation</h4>
+                <div class="p-2 text-code-primary bg-code-background rounded-lg">
+                    <code
+                        >$ <span class="bash function">yarn</span>
+                        <span class="bash function">add</span> preact-hint</code
+                    >
+                </div>
+                <h4 class="mt-6 mb-4 text-2xl text-primary">General Usage</h4>
+                <pre class="p-4 text-code-primary bg-code-background rounded-lg overflow-x-scroll">
 <code class="language-jsx">import PreactHint from 'preact-hint';
 import 'preact-hint/dist/index.css';
 
@@ -133,8 +132,8 @@ export default function App() {
     );
 }</code>
 </pre>
-                    <h4 class="mt-6 mb-4 text-2xl text-primary">Bring Your Own Template Usage</h4>
-                    <pre class="p-4 text-code-primary bg-code-background rounded-lg overflow-x-scroll">
+                <h4 class="mt-6 mb-4 text-2xl text-primary">Bring Your Own Template Usage</h4>
+                <pre class="p-4 text-code-primary bg-code-background rounded-lg overflow-x-scroll">
 <code class="language-jsx">import PreactHint from 'preact-hint';
 import 'preact-hint/dist/index.css';
 
@@ -155,9 +154,8 @@ export default function App() {
         &lt;/PreactHint&gt;
     );
 }</code>
-                    </pre>
-                </div>
-            </section>
+                </pre>
+            </main>
             <footer class="p-1 bg-gradient-to-br from-primary-dark to-primary">
                 <div class="text-center text-steel">
                     <span>&copy; 2021 Ryan Christian</span>

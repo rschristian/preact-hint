@@ -21,7 +21,7 @@ setup({
                 DEFAULT: '#bf4040',
                 light: '#DF9F9F',
             },
-            secondary: '#253746',
+            navy: '#253746',
             code: {
                 primary: '#ccc',
                 background: '#252931',

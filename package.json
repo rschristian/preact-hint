@@ -31,7 +31,7 @@
     "build:docs": "yarn build && cp dist/{preact-hint.js,style.css} docs/dev && node docs/dev/post-build.js && node docs/dev/twind-processor.js",
     "serve:dev": "sirv docs -p 3000 -D & yarn dev:lib & yarn dev:twind",
     "dev:lib": "microbundle -f modern --no-sourcemap -o docs/dev --watch & chokidar --initial 'docs/dev/preact-hint.js' -c 'node docs/dev/post-build.js'",
-    "dev:twind": "chokidar --initial 'docs/dev/index.html' -c 'node docs/dev/twind-processor.js'",
+    "dev:twind": "chokidar --initial 'docs/dev/{index.html,twind-processor.js}' -c 'node docs/dev/twind-processor.js'",
     "format": "prettier '{src,docs}/**/*.{html,css,js}' '*.json' --write"
   },
   "peerDependencies": {

@@ -63,6 +63,7 @@ export default function App() {
 Currently, this library only offers functionality for customizing the content within the tooltip itself. This is entirely optional.
 
 ### template
+
 type: `(content: string) => VNode`<br/>
 default: `undefined`
 

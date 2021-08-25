@@ -4,7 +4,6 @@ import { useCallback, useEffect, useRef, useState } from 'preact/hooks';
 
 import './style.css';
 
-
 interface Props {
     children: ComponentChild | ComponentChild[];
     template?: (content: string) => VNode;
@@ -75,7 +74,11 @@ export function Hint(props: HintProps): VNode {
         <div
             class="preact-hint preact-hint__fade-in"
             style={{
-                bottom: props.rootBoundingRect.height - props.targetBoundingRect.top + props.rootBoundingRect.top + 2,
+                bottom:
+                    props.rootBoundingRect.height -
+                    props.targetBoundingRect.top +
+                    props.rootBoundingRect.top +
+                    2,
                 left:
                     props.targetBoundingRect.left -
                     props.rootBoundingRect.left -

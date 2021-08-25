@@ -28,7 +28,7 @@
                 color: #ccc;
             }
         </style>
-        <style></style>
+        <style id="__twind"></style>
     </head>
     <body class="h-full">
         <div class="flex flex-col h-full">
@@ -178,10 +178,10 @@ export default function App() {
             hydrate(
                 html`
                     <${PreactHint}>
-                        <button class="px-4 py-2 bg-primary text-steel rounded-lg" data-preact-hint="Hello World!">
+                        <button>
                             Hover Me!
                         </button>
-                    </${PreactHint}>
+                    <//>
                 `,
                 document.getElementById('hint-demo'),
             );

@@ -171,20 +171,6 @@ export default function App() {
         </div>
 
         <script src="/prism.js"></script>
-        <script type="module">
-            import { hydrate } from 'https://cdn.skypack.dev/preact';
-            import { html } from 'https://cdn.skypack.dev/htm/preact';
-            import PreactHint from '/preact-hint.js';
-            hydrate(
-                html`
-                    <${PreactHint}>
-                        <button>
-                            Hover Me!
-                        </button>
-                    <//>
-                `,
-                document.getElementById('hint-demo'),
-            );
-        </script>
+        <script type="module" src="/preact-hint.js"></script>
     </body>
 </html>

@@ -28,9 +28,9 @@
   "sideEffects": false,
   "scripts": {
     "build": "microbundle -f modern --no-sourcemap && mv dist/preact-hint.css dist/style.css",
-    "build:docs": "yarn build && cp dist/{preact-hint.js,style.css} docs/dev && node docs/dev/post-build.js && yarn twind --no-watch",
-    "serve:dev": "sirv docs -p 3000 -D & yarn dev:lib & yarn twind",
-    "dev:lib": "microbundle -f modern --no-sourcemap -o docs/dev --watch & chokidar --initial 'docs/dev/preact-hint.js' -c 'node docs/dev/post-build.js'",
+    "build:docs": "yarn widget --no-watch && yarn twind --no-watch",
+    "serve:dev": "sirv docs -p 3000 -D & yarn widget & yarn twind",
+    "widget": "microbundle -f modern -i docs/dev/render.js --external none -o docs --no-sourcemap --watch",
     "twind": "twind-cli docs/dev/index.html -o docs/index.html -c docs/dev/twind.config.js",
     "format": "prettier --write --ignore-path .gitignore . '!docs/prism.js'"
   },
@@ -40,6 +40,7 @@
   "devDependencies": {
     "@rschristian/twind-cli": "^0.2.1",
     "chokidar-cli": "^3.0.0",
+    "htm": "^3.1.0",
     "microbundle": "^0.13.3",
     "preact": "^10.5.14",
     "prettier": "^2.3.2",

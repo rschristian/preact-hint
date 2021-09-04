@@ -35,7 +35,7 @@
 
 <br />
 
-Preact-Hint is a tiny component library used for displaying tooltips. Try out [the demo](https://rschristian.github.io/preact-hint)!
+Preact-Hint is a tiny component library used for displaying tooltips. Try out [the demo](https://preact-hint.rschristian.dev/)!
 
 ## Install
 

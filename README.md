@@ -1,9 +1,3 @@
-<div align="center">
-    <a href="https://rschristian.github.io/preact-hint">
-      <img src="https://github.com/rschristian/preact-hint/blob/master/media/carbon.svg?raw=true" alt="Preact Hint" width="600" />
-    </a>
-</div>
-
 <h1 align="center">Preact Hint</h1>
 
 <div align="center">

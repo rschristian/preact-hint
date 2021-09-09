@@ -106,7 +106,7 @@
                     <div style="position: relative">
                         <button
                             class="px-4 py-2 bg-primary text-steel rounded-lg"
-                            data-preact-hint="Hello World!"
+                            data-hint="Hello World!"
                         >
                             Hover Me!
                         </button>
@@ -121,38 +121,61 @@
                 </div>
                 <h4 class="mt-6 mb-4 text-2xl text-primary">General Usage</h4>
                 <pre class="p-4 text-code-primary bg-code-background rounded-lg overflow-x-auto">
-<code class="language-jsx">import PreactHint from 'preact-hint';
+<code class="language-jsx">import Hint from 'preact-hint';
 import 'preact-hint/dist/index.css';
 
 export default function App() {
     return (
-        &lt;PreactHint&gt;
-            &lt;button data-preact-hint="Hello World!"&gt;Hover over me!&lt;/button&gt;
-        &lt;/PreactHint&gt;
+        &lt;Hint&gt;
+            &lt;button data-hint="Hello World!"&gt;Hover over me!&lt;/button&gt;
+        &lt;/Hint&gt;
     );
 }</code></pre>
-                <h4 class="mt-6 mb-4 text-2xl text-primary">Bring Your Own Template Usage</h4>
-                <pre class="p-4 text-code-primary bg-code-background rounded-lg overflow-x-auto">
-<code class="language-jsx">import PreactHint from 'preact-hint';
-import 'preact-hint/dist/index.css';
+                <hr class="h-0.5 my-6 text-code-background bg-code-background" />
 
-export default function App() {
-    return (
-        &lt;PreactHint
-            template={(content) =&gt; {
-                const stringPieces = content.split(',');
-                return (
-                    &lt;Fragment&gt;
-                        <strong>{stringPieces[0]} Contributions</strong> on 
-                        {new Date(stringPieces[1]).toLocaleDateString()}
-                    &lt;/Fragment&gt;
-                );
-            }}
-        &gt;
-            &lt;button data-preact-hint={['0', '2019-09-14']}&gt;Hover over me!&lt;/button&gt;
-        &lt;/PreactHint&gt;
-    );
-}</code></pre>
+                <h4 class="mt-6 mb-4 text-2xl text-primary">Options</h4>
+
+                <div class="mb-12 mx-3">
+                    <h5 class="mb-2 text-xl text-primary">• attribute</h5>
+                    <h4 class="mb-4 ml-3">Default: 'data-hint'</h4>
+                    <pre
+                        class="p-4 text-code-primary bg-code-background rounded-lg overflow-x-auto"
+                    >
+<code class="language-jsx">&lt;Hint attribute="data-foo"&gt;
+    &lt;button data-foo="Hello World!"&gt;Hover over me!&lt;/button&gt;
+&lt;/Hint&gt;</code></pre>
+                </div>
+
+                <div class="mb-12 mx-3">
+                    <h5 class="mb-2 text-xl text-primary">• template</h5>
+                    <h4 class="mb-4 ml-3">Default: undefined</h4>
+                    <pre
+                        class="p-4 text-code-primary bg-code-background rounded-lg overflow-x-auto"
+                    >
+<code class="language-jsx">&lt;Hint
+    template={(content) =&gt; {
+        const stringPieces = content.split(',');
+        return (
+            &lt;Fragment&gt;
+                &lt;strong&gt;{stringPieces[0]} contributions&lt;/strong&gt; on
+                {new Date(stringPieces[1]).toLocaleDateString()}
+            &lt;/Fragment&gt;
+        );
+    }}
+&gt;
+    &lt;button data-hint="10,2019-09-14"&gt;Hover over me!&lt;/button&gt;
+&lt;/Hint&gt;</code></pre>
+                    <div id="options-template" class="mt-4">
+                        <div style="position: relative">
+                            <button
+                                class="px-4 py-2 bg-primary text-steel rounded-lg"
+                                data-hint="10,2019-09-14"
+                            >
+                                Hover Me!
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </main>
             <footer
                 class="p-1 bg-gradient-to-br from-primary-dark to-primary text-steel text-center"

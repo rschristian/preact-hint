@@ -6,12 +6,12 @@ import './style.css';
 
 interface Props {
     children: ComponentChild | ComponentChild[];
+    attribute?: string;
     template?: (content: string) => VNode;
 }
 
-const attribute = 'data-preact-hint';
-
 export default function Container(props: Props): VNode {
+    const attribute = props.attribute || 'data-hint';
     const [content, setContent] = useState<string>('');
     const [containerElement, setContainerElement] = useState<HTMLDivElement | null>(null);
     const [targetBoundingRect, setTargetBoundingRect] = useState<ClientRect | null>(null);
@@ -38,7 +38,7 @@ export default function Container(props: Props): VNode {
     );
 
     return (
-        <div ref={onRefChange} style={{ position: 'relative' }}>
+        <div ref={onRefChange} style="position: relative">
             {content && containerElement && targetBoundingRect && (
                 <Hint
                     content={content}

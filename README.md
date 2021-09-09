@@ -7,12 +7,6 @@
            src="https://img.shields.io/npm/l/preact-hint?color=blue"
          />
     </a>
-    <a href="https://bundlephobia.com/result?p=preact-hint">
-        <img
-           alt="npm bundle size"
-           src="https://img.shields.io/bundlephobia/minzip/preact-hint"
-         />
-    </a>
     <a href="https://npmjs.org/package/preact-hint">
         <img 
            alt="0 Dependencies"
@@ -40,21 +34,32 @@ $ yarn add preact-hint
 ## Usage
 
 ```jsx
-import PreactHint from 'preact-hint';
+import Hint from 'preact-hint';
 import 'preact-hint/dist/index.css';
 
 export default function App() {
     return (
-        <PreactHint>
-            <button data-preact-hint="Hello World!">Hover over me!</button>
-        </PreactHint>
+        <Hint>
+            <button data-hint="Hello World!">Hover over me!</button>
+        </Hint>
     );
 }
 ```
 
 ## API
 
-Currently, this library only offers functionality for customizing the content within the tooltip itself. This is entirely optional.
+### attribute
+
+type: `string`<br/>
+deault: `data-hint`
+
+Allows you to customize which attribute contains hint data on the element.
+
+```jsx
+<Hint attribute="data-foo">
+    <button data-foo="Hello World!">Hover over me!</button>
+</Hint>
+```
 
 ### template
 
@@ -64,7 +69,7 @@ default: `undefined`
 Allows you to customize the content within the tooltip. See the following example:
 
 ```jsx
-<PreactHint
+<Hint
     template={(content) => {
         const stringPieces = content.split(',');
         return (
@@ -74,8 +79,8 @@ Allows you to customize the content within the tooltip. See the following exampl
         );
     }}
 >
-    <button data-preact-hint={['0', '2019-09-14']}>Hover over me!</button>
-</PreactHint>
+    <button data-hint={['0', '2019-09-14']}>Hover over me!</button>
+</Hint>
 ```
 
 ## License

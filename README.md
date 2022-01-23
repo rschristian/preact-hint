@@ -7,18 +7,6 @@
            src="https://img.shields.io/npm/l/preact-hint?color=blue"
          />
     </a>
-    <a href="https://npmjs.org/package/preact-hint">
-        <img 
-           alt="0 Dependencies"
-           src="https://img.shields.io/david/rschristian/preact-hint?color=blue"
-         />
-    </a>
-    <a href="https://npmjs.org/package/preact-hint">
-        <img
-            alt="TS Support"
-            src="https://img.shields.io/npm/types/preact-hint"
-        />
-    </a>
 </div>
 
 <br />

@@ -13,10 +13,13 @@ export default {
                 DEFAULT: '#bf4040',
                 light: '#ff7b72',
             },
-            navy: '#253746',
+            content: {
+                dark: '#ddd',
+                light: '#24292f',
+            },
             code: {
-                primary: '#ccc',
-                background: '#252931',
+                dark: '#161b22',
+                light: '#eee',
             },
             steel: {
                 dimmer: '#b5b5b5',

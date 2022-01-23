@@ -11,7 +11,7 @@ export default {
             primary: {
                 dark: '#602020',
                 DEFAULT: '#bf4040',
-                light: '#ff7b72',
+                light: '#df6060',
             },
             content: {
                 dark: '#ddd',

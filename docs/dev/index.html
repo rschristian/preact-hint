@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="h-full text-content-light">
+<html lang="en" class="h-full text-content-light dark:(text-content-dark bg-[#0d1117])">
     <head>
         <meta charset="utf-8" />
         <title>Preact Hint</title>
@@ -18,12 +18,14 @@
             }
 
             @media (prefers-color-scheme: dark) {
-                --code-text: #ccc;
-                --code-red: #ff7b72;
-                --code-green: #7ee787;
-                --code-orange: #ffa657;
-                --code-blue: #79c0ff;
-                --code-light-blue: #a5d6ff;
+                :root {
+                    --code-text: #ccc;
+                    --code-red: #ff7b72;
+                    --code-green: #7ee787;
+                    --code-orange: #ffa657;
+                    --code-blue: #79c0ff;
+                    --code-light-blue: #a5d6ff;
+                }
             }
 
             .token.script {
@@ -91,11 +93,11 @@
                 </div>
             </section>
             <main class="w-full lg:max-w-screen-lg mx-auto px-6 py-12 flex-auto">
-                <h1 class="mb-2 text(primary 4xl center lg:left)">Preact Hint</h1>
+                <h1 class="mb-2 text(primary dark:primary-light 4xl center lg:left)">Preact Hint</h1>
                 <p class="text-xl mb-2">
                     Preact-Hint is a lightweight and extensible tooltip component for
                     <a
-                        class="text(primary hover:primary-light) underline"
+                        class="text(primary dark:primary-light hover:[#ff7b72]) underline"
                         href="https://preactjs.com"
                         target="_blank"
                         rel="noreferrer"
@@ -112,31 +114,31 @@
                         </button>
                     </div>
                 </div>
-                <h4 class="mt-6 mb-4 text(primary 2xl)">Installation</h4>
-                <div class="p-2 bg-code-light rounded-lg">
+                <h4 class="mt-6 mb-4 text(primary dark:primary-light 2xl)">Installation</h4>
+                <div class="p-2 bg-code(light dark:dark) rounded-lg">
                     <code
                         >$ <span class="bash function">yarn</span>
                         <span class="bash function">add</span> preact-hint</code
                     >
                 </div>
-                <h4 class="mt-6 mb-4 text(primary 2xl)">General Usage</h4>
-                <pre class="p-4 bg-code-light rounded-lg overflow-x-auto">
+                <h4 class="mt-6 mb-4 text(primary dark:primary-light 2xl)">General Usage</h4>
+                <pre class="p-4 bg-code(light dark:dark) rounded-lg overflow-x-auto">
 <code id="general" class="language-jsx"></code></pre>
                 <hr class="h-0.5 my-6" />
 
-                <h4 class="mt-6 mb-4 text(primary 2xl)">Options</h4>
+                <h4 class="mt-6 mb-4 text(primary dark:primary-light 2xl)">Options</h4>
 
                 <div class="mb-12 mx-3">
-                    <h5 class="mb-2 text(primary xl)">• attribute</h5>
+                    <h5 class="mb-2 text(primary dark:primary-light xl)">• attribute</h5>
                     <h4 class="mb-4 ml-3">Default: 'data-hint'</h4>
-                    <pre class="p-4 bg-code-light rounded-lg overflow-x-auto">
+                    <pre class="p-4 bg-code(light dark:dark) rounded-lg overflow-x-auto">
 <code id="options--attribute" class="language-jsx"></code></pre>
                 </div>
 
                 <div class="mb-12 mx-3">
-                    <h5 class="mb-2 text(primary xl)">• template</h5>
+                    <h5 class="mb-2 text(primary dark:primary-light xl)">• template</h5>
                     <h4 class="mb-4 ml-3">Default: undefined</h4>
-                    <pre class="p-4 bg-code-light rounded-lg overflow-x-auto">
+                    <pre class="p-4 bg-code(light dark:dark) rounded-lg overflow-x-auto">
 <code id="options--template" class="language-jsx"></code></pre>
                     <div id="options-template" class="mt-4">
                         <div style="position: relative">

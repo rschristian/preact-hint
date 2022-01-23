@@ -17,8 +17,7 @@ hydrate(
             template=${(content) => {
                 const stringPieces = content.split(',');
                 return html`
-                    <strong>${stringPieces[0]} contributions</strong> on
-                    ${new Date(stringPieces[1]).toLocaleDateString()}
+                    <strong>${stringPieces[0]} contributions</strong> on ${stringPieces[1]}
                 `;
             }}
         >

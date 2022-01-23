@@ -38,10 +38,10 @@
     "preact": "*"
   },
   "devDependencies": {
-    "@rschristian/twind-cli": "^0.2.1",
+    "@rschristian/twind-cli": "^0.3.0",
     "chokidar-cli": "^3.0.0",
     "htm": "^3.1.0",
-    "microbundle": "^0.13.3",
+    "microbundle": "^0.14.2",
     "preact": "^10.5.14",
     "prettier": "^2.3.2",
     "prettier-config-rschristian": "^0.1.1",

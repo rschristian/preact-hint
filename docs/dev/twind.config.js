@@ -11,7 +11,7 @@ export default {
             primary: {
                 dark: '#602020',
                 DEFAULT: '#bf4040',
-                light: '#DF9F9F',
+                light: '#ff7b72',
             },
             navy: '#253746',
             code: {

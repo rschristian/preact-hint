@@ -3,39 +3,51 @@
     <head>
         <meta charset="utf-8" />
         <title>Preact Hint</title>
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
-        <meta name="mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="description" content="Preact Hint Docs" />
-        <link rel="shortcut icon" href="/assets/favicon.ico" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <link rel="icon" href="/assets/favicon.ico" />
         <link rel="stylesheet" href="/preact-hint.css" />
         <style>
             .bash.function,
             .token.keyword {
-                color: hsl(0, 50%, 50%);
+                color: #ff7b72;
             }
 
-            .token.tag {
-                color: #e09f3e;
+            .token.tag > .token.punctuation,
+            .token.tag > .token.class-name,
+            .token.tag:not(:empty) {
+                color: #7ee787;
+            }
+
+            .token.script {
+                color: #ccc;
+            }
+
+            .token.function {
+                color: #ffa657;
+            }
+
+            .token.attr-name,
+            .token.attr-equals,
+            .token.script-punctuation,
+            .token.operator,
+            .token.number {
+                color: #79c0ff;
             }
 
             .token.string,
             .token.attr-value {
-                color: #4b88a2;
-            }
-
-            .token.punctuation {
-                color: #ccc;
+                color: #a5d6ff;
             }
         </style>
         <style id="__twind"></style>
     </head>
     <body class="h-full">
-        <div class="flex flex-col h-full">
+        <div class="flex(& col) h-full">
             <section class="bg-gradient-to-br from-primary-dark to-primary">
                 <div class="py-12 px-4">
                     <div class="mx-auto text-center">
-                        <h1 class="mb-2 text-5xl text-steel font-bold">Preact Hint</h1>
+                        <h1 class="mb-2 text(steel 5xl) font-bold">Preact Hint</h1>
                         <h2 class="text-steel-dim">
                             Lightweight and extensible tooltip component for Preact
                         </h2>
@@ -47,12 +59,9 @@
                                 inline-flex
                                 rounded-md
                                 text-steel
-                                border-1 border-solid border-steel
-                                bg-white bg-opacity-10
-                                hover:text-white
-                                hover:bg-white
-                                hover:bg-opacity-20
-                                hover:border-steel-dimmer
+                                border(1 solid steel)
+                                bg(white opacity-10)
+                                hover:(text-white bg(white opacity-20) border-steel-dimmer)
                             "
                             href="https://github.com/rschristian/preact-hint"
                             target="_blank"
@@ -64,111 +73,57 @@
                 </div>
             </section>
             <main class="w-full lg:max-w-screen-lg mx-auto px-6 py-12 flex-auto">
-                <h1 class="mb-2 text-4xl text-center lg:text-left text-primary">Preact Hint</h1>
-                <div class="flex mb-6 justify-center lg:justify-left" style="height: 20px">
-                    <a
-                        class="mr-1"
-                        href="https://github.com/rschristian/preact-hint/blob/master/LICENSE"
-                    >
-                        <img
-                            alt="NPM"
-                            src="https://img.shields.io/npm/l/preact-hint?color=%23bf4040"
-                        />
-                    </a>
-                    <a class="mr-1" href="https://bundlephobia.com/result?p=preact-hint">
-                        <img
-                            alt="npm bundle size"
-                            src="https://img.shields.io/bundlephobia/minzip/preact-hint?color=%23bf4040"
-                        />
-                    </a>
-                    <a class="mr-1" href="https://npmjs.org/package/preact-hint">
-                        <img
-                            alt="0 Dependencies"
-                            src="https://img.shields.io/david/rschristian/preact-hint?color=%23bf4040"
-                        />
-                    </a>
-                    <a href="https://npmjs.org/package/preact-hint">
-                        <img
-                            alt="TS Support"
-                            src="https://img.shields.io/npm/types/preact-hint?color=%23bf4040"
-                        />
-                    </a>
-                </div>
+                <h1 class="mb-2 text(primary 4xl center lg:left)">Preact Hint</h1>
                 <p class="text-xl mb-2">
                     Preact-Hint is a lightweight and extensible tooltip component for
                     <a
-                        class="text-primary hover:text-primary-light underline"
+                        class="text([#df6060] hover:primary-bright) underline"
                         href="https://preactjs.com"
-                        >Preact</a
+                        target="_blank"
+                        rel="noreferrer"
+                        >preact</a
                     >. It was designed with a focus on size, adaptability, and ease of use.
                 </p>
                 <div id="hint-demo" class="mt-4">
                     <div style="position: relative">
                         <button
-                            class="px-4 py-2 bg-primary text-steel rounded-lg"
+                            class="px-4 py-2 bg-primary text-white rounded-lg"
                             data-hint="Hello World!"
                         >
                             Hover Me!
                         </button>
                     </div>
                 </div>
-                <h4 class="mt-6 mb-4 text-2xl text-primary">Installation</h4>
+                <h4 class="mt-6 mb-4 text(primary 2xl)">Installation</h4>
                 <div class="p-2 text-code-primary bg-code-background rounded-lg">
                     <code
                         >$ <span class="bash function">yarn</span>
                         <span class="bash function">add</span> preact-hint</code
                     >
                 </div>
-                <h4 class="mt-6 mb-4 text-2xl text-primary">General Usage</h4>
+                <h4 class="mt-6 mb-4 text(primary 2xl)">General Usage</h4>
                 <pre class="p-4 text-code-primary bg-code-background rounded-lg overflow-x-auto">
-<code class="language-jsx">import Hint from 'preact-hint';
-import 'preact-hint/dist/index.css';
+<code id="general" class="language-jsx"></code></pre>
+                <hr class="h-0.5 my-6 text-code-primary" />
 
-export default function App() {
-    return (
-        &lt;Hint&gt;
-            &lt;button data-hint="Hello World!"&gt;Hover over me!&lt;/button&gt;
-        &lt;/Hint&gt;
-    );
-}</code></pre>
-                <hr class="h-0.5 my-6 text-code-background bg-code-background" />
-
-                <h4 class="mt-6 mb-4 text-2xl text-primary">Options</h4>
+                <h4 class="mt-6 mb-4 text(primary 2xl)">Options</h4>
 
                 <div class="mb-12 mx-3">
-                    <h5 class="mb-2 text-xl text-primary">• attribute</h5>
+                    <h5 class="mb-2 text(primary xl)">• attribute</h5>
                     <h4 class="mb-4 ml-3">Default: 'data-hint'</h4>
-                    <pre
-                        class="p-4 text-code-primary bg-code-background rounded-lg overflow-x-auto"
-                    >
-<code class="language-jsx">&lt;Hint attribute="data-foo"&gt;
-    &lt;button data-foo="Hello World!"&gt;Hover over me!&lt;/button&gt;
-&lt;/Hint&gt;</code></pre>
+                    <pre class="p-4 text-code-primary bg-code-background rounded-lg overflow-x-auto">
+<code id="options--attribute" class="language-jsx"></code></pre>
                 </div>
 
                 <div class="mb-12 mx-3">
-                    <h5 class="mb-2 text-xl text-primary">• template</h5>
+                    <h5 class="mb-2 text(primary xl)">• template</h5>
                     <h4 class="mb-4 ml-3">Default: undefined</h4>
-                    <pre
-                        class="p-4 text-code-primary bg-code-background rounded-lg overflow-x-auto"
-                    >
-<code class="language-jsx">&lt;Hint
-    template={(content) =&gt; {
-        const stringPieces = content.split(',');
-        return (
-            &lt;Fragment&gt;
-                &lt;strong&gt;{stringPieces[0]} contributions&lt;/strong&gt; on
-                {new Date(stringPieces[1]).toLocaleDateString()}
-            &lt;/Fragment&gt;
-        );
-    }}
-&gt;
-    &lt;button data-hint="10,2019-09-14"&gt;Hover over me!&lt;/button&gt;
-&lt;/Hint&gt;</code></pre>
+                    <pre class="p-4 text-code-primary bg-code-background rounded-lg overflow-x-auto">
+<code id="options--template" class="language-jsx"></code></pre>
                     <div id="options-template" class="mt-4">
                         <div style="position: relative">
                             <button
-                                class="px-4 py-2 bg-primary text-steel rounded-lg"
+                                class="px-4 py-2 bg-primary text-white rounded-lg"
                                 data-hint="10,2019-09-14"
                             >
                                 Hover Me!
@@ -177,13 +132,11 @@ export default function App() {
                     </div>
                 </div>
             </main>
-            <footer
-                class="p-1 bg-gradient-to-br from-primary-dark to-primary text-steel text-center"
-            >
+            <footer class="p-1 bg-gradient-to-br from-primary-dark to-primary text(steel center)">
                 <span
                     >© 2021 Ryan Christian
                     <a
-                        class="text-steel hover:text-steel-dimmer"
+                        class="text(steel hover:steel-dimmer)"
                         href="https://github.com/rschristian"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -192,6 +145,41 @@ export default function App() {
                 >
             </footer>
         </div>
+
+        <script type="module">
+            import dedent from '/dedent.js';
+
+            document.getElementById('general').textContent = dedent
+                `import Hint from 'preact-hint';
+                 import 'preact-hint/dist/index.css';
+
+                 export default function App() {
+                     return (
+                         <Hint>
+                             <button data-hint="Hello World!">Hover over me!</button>
+                         </Hint>
+                     );
+                 }`
+
+            document.getElementById('options--attribute').textContent = dedent
+                `<Hint attribute="data-foo">
+                     <button data-foo="Hello World!">Hover over me!</button>
+                 </Hint>`;
+
+            document.getElementById('options--template').textContent = dedent
+                `<Hint
+                     template={(content) => {
+                         const stringPieces = content.split(',');
+                         return (
+                             <Fragment>
+                                 <strong>{stringPieces[0]} contributions</strong> on {stringPieces[1]}
+                             </Fragment>
+                         );
+                     }}
+                 >
+                     <button data-hint="10,2019-09-14">Hover over me!</button>;
+                 </Hint>`;
+        </script>
 
         <script src="/prism.js"></script>
         <script type="module" src="/preact-hint.js"></script>

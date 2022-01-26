@@ -59,7 +59,7 @@ interface HintProps {
     targetBoundingRect: ClientRect;
 }
 
-export function Hint(props: HintProps): VNode {
+function Hint(props: HintProps): VNode {
     const hint = useRef<HTMLSpanElement>(null);
     // Render way off-screen to prevent rubber banding from initial (and unavoidable) render.
     const [hintWidth, setHintWidth] = useState(10000);

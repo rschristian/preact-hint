@@ -9,3 +9,17 @@ import { promises as fs } from 'node:fs';
     if (scriptRegex.test(html)) html = html.replace(scriptRegex, '');
     await fs.writeFile('build/index.html', html);
 })();
+
+(async function inlineCSS() {
+    const linkRegex = /<link rel="stylesheet" href="\/assets\/styles([^\n]*)/;
+    const css = await fs.readFile(
+        `build/assets/styles/${(await fs.readdir('build/assets/styles'))[0]}`,
+        'utf-8',
+    );
+
+    let html = await fs.readFile('build/index.html', 'utf-8');
+    if (linkRegex.test(html)) {
+        html = html.replace(linkRegex, `<style>${css}</style>`);
+        await fs.writeFile('build/index.html', html);
+    }
+})();

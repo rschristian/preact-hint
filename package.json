@@ -27,26 +27,29 @@
   ],
   "sideEffects": false,
   "scripts": {
-    "build": "microbundle -f modern --no-sourcemap && mv dist/preact-hint.css dist/style.css",
-    "build:docs": "yarn widget --no-watch && yarn twind --no-watch",
-    "serve:dev": "sirv docs -p 3000 -D & yarn widget & yarn twind",
-    "widget": "microbundle -f modern -i docs/dev/render.js --external none -o docs --no-sourcemap --watch",
-    "twind": "twind-cli docs/dev/index.html -o docs/index.html -c docs/dev/twind.config.js",
-    "format": "prettier --write --ignore-path .gitignore . '!docs/prism.js'"
+    "build": "microbundle -f modern --no-sourcemap --tsconfig tsconfig.build.json && mv dist/preact-hint.css dist/style.css",
+    "build:docs": "yarn build:widget --no-watch && mkdir build && wmr build --prerender && node scripts/post-build.js",
+    "serve:dev": "wmr -p 3000 & yarn build:widget",
+    "serve:prod": "yarn wmr serve -p 3000",
+    "build:widget": "microbundle -f modern -i docs/utils/render.ts --external none -o docs --no-sourcemap --generateTypes=false --tsconfig tsconfig.build.json --watch",
+    "format": "prettier --write --ignore-path .gitignore ."
   },
   "peerDependencies": {
     "preact": "*"
   },
   "devDependencies": {
-    "@rschristian/twind-cli": "^0.3.0",
-    "chokidar-cli": "^3.0.0",
+    "@twind/wmr": "^1.0.9",
+    "dedent": "^0.7.0",
     "htm": "^3.1.0",
     "microbundle": "^0.14.2",
     "preact": "^10.5.14",
+    "preact-iso": "^2.3.0",
     "prettier": "^2.3.2",
     "prettier-config-rschristian": "^0.1.1",
-    "sirv-cli": "^1.0.12",
-    "typescript": "^4.3.5"
+    "prismjs": "^1.26.0",
+    "twind": "^0.16.16",
+    "typescript": "^4.3.5",
+    "wmr": "^3.7.2"
   },
   "prettier": "prettier-config-rschristian"
 }

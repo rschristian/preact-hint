@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "esModuleInterop": true,
+    "jsx": "react",
+    "jsxFactory": "h",
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "strict": true
+  },
+  "include": ["src"]
+}

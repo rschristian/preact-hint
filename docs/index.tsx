@@ -13,9 +13,32 @@ export function App() {
         <div class="flex(& col) h-full px-5 text-content(& dark:dark) bg(light:[#f8f8f8] dark:[#2a2727])">
             <Header />
             <main class="w-full lg:max-w-4xl flex-1 mb(16 md:32 lg:48) mx-auto">
-                <h1 class="mb-12 text(primary(& dark:light) 5xl center lg:left)">
+                <h1 class="mb-2 text(primary(& dark:light) 5xl center lg:left)">
                     Preact Hint
                 </h1>
+                <div class="flex justify(center lg:left) mb-12">
+                    <a
+                        class="mr-1"
+                        href="https://github.com/rschristian/preact-hint/blob/master/LICENSE"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <img
+                            alt="License: MIT"
+                            src="https://img.shields.io/npm/l/preact-hint?color=%23df6060"
+                        />
+                    </a>
+                    <a
+                        href="https://npmjs.org/package/preact-hint"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <img
+                            alt="Types: TS"
+                            src="https://img.shields.io/npm/types/preact-hint?color=%23df6060"
+                        />
+                    </a>
+                </div>
                 <p class="text-xl mb-2">
                     Preact-Hint is a lightweight and extensible tooltip component for{' '}
                     <a
@@ -50,6 +73,7 @@ export function App() {
 
                 <Option
                     name="attribute"
+                    type="string"
                     default="'data-hint'"
                     description="Sets the HTML attribute to check against for hint content"
                     code={optionAttribute}
@@ -57,6 +81,7 @@ export function App() {
 
                 <Option
                     name="template"
+                    type="(content: string) => VNode"
                     default="undefined"
                     description="Callback function for controlling how the hint HTML is formed"
                     code={optionTemplate}

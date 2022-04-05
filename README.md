@@ -39,7 +39,7 @@ export default function App() {
 ### attribute
 
 type: `string`<br/>
-deault: `data-hint`
+default: `data-hint`
 
 Allows you to customize which attribute contains hint data on the element.
 

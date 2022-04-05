@@ -17,7 +17,7 @@ export function CodeBlock({ content, lang }: Props) {
     );
     return (
         <pre
-            class={`${isBash ? 'p-3' : 'p-4'} bg-code(light dark:dark) rounded-lg overflow-x-auto`}
+            class="p-4 bg-code(& dark:dark) shadow-lg rounded-lg overflow-x-auto"
         >
             <code class={isBash ? 'lang-bash' : 'lang-jsx'} dangerouslySetInnerHTML={htmlObj} />
         </pre>

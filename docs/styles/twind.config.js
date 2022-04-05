@@ -12,21 +12,28 @@ export default {
                 dark: '#602020',
                 DEFAULT: '#bf4040',
                 light: '#df6060',
+                hover: '#ff7b72',
             },
             content: {
+                DEFAULT: '#24292f',
                 dark: '#ddd',
-                light: '#24292f',
+            },
+            card: {
+                DEFAULT: '#f3f1f0',
+                dark: '#463a34',
             },
             code: {
-                dark: '#161b22',
-                light: '#eee',
+                DEFAULT: '#fff',
+                inline: '#99a1b3',
+                dark: '#1b1818',
             },
-            steel: {
-                dimmer: '#b5b5b5',
-                dim: '#ddd',
-                DEFAULT: '#ededed',
+            white: {
+                muted: '#999',
+                DEFAULT: '#ffffff',
             },
-            white: '#fff',
         },
+    },
+    variants: {
+        light: '@media (prefers-color-scheme:light)',
     },
 };

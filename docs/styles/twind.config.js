@@ -1,4 +1,5 @@
 export default {
+    darkMode: 'class',
     theme: {
         extend: {
             fontSize: {
@@ -31,9 +32,10 @@ export default {
                 muted: '#999',
                 DEFAULT: '#ffffff',
             },
+            transparent: 'transparent',
         },
     },
     variants: {
-        light: '@media (prefers-color-scheme:light)',
-    },
+        hocus: '&:hover,&:focus'
+    }
 };

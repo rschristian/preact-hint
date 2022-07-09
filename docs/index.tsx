@@ -10,7 +10,7 @@ import { install, generalUsage, optionAttribute, optionTemplate } from './codeSa
 
 export function App() {
     return (
-        <div class="flex(& col) h-full px-5 text-content(& dark:dark) bg(light:[#f8f8f8] dark:[#2a2727])">
+        <div class="flex(& col) h-full px-5 text(content dark:content-dark) bg([#f8f8f8] dark:[#2a2727])">
             <Header />
             <main class="w-full lg:max-w-4xl flex-1 mb(16 md:32 lg:48) mx-auto">
                 <h1 class="mb-2 text(primary(& dark:light) 5xl center lg:left)">
@@ -18,31 +18,22 @@ export function App() {
                 </h1>
                 <div class="flex justify(center lg:left) mb-12">
                     <a
-                        class="mr-1"
                         href="https://github.com/rschristian/preact-hint/blob/master/LICENSE"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
                         <img
+                            width="78"
+                            height="20"
                             alt="License: MIT"
                             src="https://img.shields.io/npm/l/preact-hint?color=%23df6060"
-                        />
-                    </a>
-                    <a
-                        href="https://npmjs.org/package/preact-hint"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <img
-                            alt="Types: TS"
-                            src="https://img.shields.io/npm/types/preact-hint?color=%23df6060"
                         />
                     </a>
                 </div>
                 <p class="text-xl mb-2">
                     Preact-Hint is a lightweight and extensible tooltip component for{' '}
                     <a
-                        class="text-primary(& dark:light hover:hover) underline"
+                        class="text(primary dark:primary-light hocus:primary-hover!) underline"
                         href="https://preactjs.com"
                         target="_blank"
                         rel="noreferrer"
@@ -104,6 +95,7 @@ export function App() {
     );
 }
 
+// @ts-ignore
 const { hydrate, prerender } = withTwind(
     {
         props: {

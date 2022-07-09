@@ -16,20 +16,24 @@ html {
   --code-light-blue: #0a3069;
 }
 
-@media (prefers-color-scheme: dark) {
-  .preact-hint__content {
-    background: #eee;
-    color: #111;
-  }
+.dark {
+  --code-text: #ccc;
+  --code-red: #ff7b72;
+  --code-green: #7ee787;
+  --code-orange: #ffa657;
+  --code-blue: #79c0ff;
+  --code-light-blue: #a5d6ff;
+  --hint-text: #111;
+  --hint-background: #eee;
+}
 
-  :root {
-    --code-text: #ccc;
-    --code-red: #ff7b72;
-    --code-green: #7ee787;
-    --code-orange: #ffa657;
-    --code-blue: #79c0ff;
-    --code-light-blue: #a5d6ff;
-  }
+:focus {
+  outline: none !important;
+}
+
+svg {
+  height: 1.5rem;
+  width: 1.5rem;
 }
 
 .token.script {

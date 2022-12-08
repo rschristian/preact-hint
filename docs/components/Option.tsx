@@ -4,7 +4,7 @@ import { CodeBlock } from './CodeBlock';
 type Props = {
     name: string;
     type: string;
-    default: string;
+    defaultValue: string;
     description: string;
     code: string;
     demo?: VNode;
@@ -18,7 +18,7 @@ export function Option(props: Props) {
                 <span class="ml-1 px-1 py-px bg(code-inline opacity-25) rounded-md">{props.type}</span>
             </p>
             <p class="mb-4 ml-3">Default:
-                <span class="ml-1 px-1 py-px bg(code-inline opacity-25) rounded-md">{props.default}</span>
+                <span class="ml-1 px-1 py-px bg(code-inline opacity-25) rounded-md">{props.defaultValue}</span>
             </p>
             <p class="mb-8 ml-3">{props.description}</p>
             <CodeBlock content={props.code} lang="jsx" />

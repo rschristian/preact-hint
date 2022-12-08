@@ -65,7 +65,7 @@ export function App() {
                 <Option
                     name="attribute"
                     type="string"
-                    default="'data-hint'"
+                    defaultValue="'data-hint'"
                     description="Sets the HTML attribute to check against for hint content"
                     code={optionAttribute}
                 />
@@ -73,7 +73,7 @@ export function App() {
                 <Option
                     name="template"
                     type="(content: string) => VNode"
-                    default="undefined"
+                    defaultValue="undefined"
                     description="Callback function for controlling how the hint HTML is formed"
                     code={optionTemplate}
                     demo={

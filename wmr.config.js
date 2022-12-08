@@ -1,4 +1,4 @@
-import { defineConfig } from '@rschristian/wmr';
+import { defineConfig } from 'wmr';
 
 export default defineConfig({
     public: 'docs',

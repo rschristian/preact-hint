@@ -1,13 +1,11 @@
-export default {
+import { defineConfig } from '@twind/core';
+import presetTailwind from '@twind/preset-tailwind';
+
+export const twindConfig = defineConfig({
     darkMode: 'class',
+    presets: [presetTailwind()],
+    hash: false,
     theme: {
-        extend: {
-            fontSize: {
-                '2xl': '1.5rem',
-                '4xl': '2rem',
-                '5xl': '2.5rem',
-            },
-        },
         colors: {
             primary: {
                 dark: '#602020',
@@ -34,8 +32,13 @@ export default {
             },
             transparent: 'transparent',
         },
+        extend: {
+            fontSize: {
+                '2xl': '1.5rem',
+                '4xl': '2rem',
+                '5xl': '2.5rem',
+            },
+        },
     },
-    variants: {
-        hocus: '&:hover,&:focus'
-    }
-};
+    variants: [['hocus', '&:hover,&:focus-visible']]
+});

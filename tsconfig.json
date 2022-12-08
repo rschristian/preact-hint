@@ -10,5 +10,5 @@
     "allowJs": true,
     "checkJs": true
   },
-  "include": ["src", "docs"]
+  "include": ["node_modules/wmr/types.d.ts", "**/*"]
 }

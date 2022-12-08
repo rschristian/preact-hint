@@ -1,5 +1,4 @@
-import withTwind from '@twind/wmr';
-import twindConfig from './styles/twind.config.js';
+import { withTwind } from '@rschristian/twind-wmr';
 
 import { Header } from './components/core/Header';
 import { Footer } from './components/core/Footer';
@@ -95,16 +94,8 @@ export function App() {
     );
 }
 
-// @ts-ignore
 const { hydrate, prerender } = withTwind(
-    {
-        props: {
-            tw: false,
-            css: false,
-            className: true,
-        },
-        ...twindConfig,
-    },
+    () => import('./styles/twind.config'),
     () => <App />,
 );
 

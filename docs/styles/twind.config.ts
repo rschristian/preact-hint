@@ -17,6 +17,10 @@ export const twindConfig = defineConfig({
                 DEFAULT: '#24292f',
                 dark: '#ddd',
             },
+            page: {
+                DEFAULT: '#f8f8f8',
+                dark: '#2a2727',
+            },
             card: {
                 DEFAULT: '#f3f1f0',
                 dark: '#463a34',

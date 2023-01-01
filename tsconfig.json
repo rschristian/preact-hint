@@ -1,11 +1,11 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "module": "ESNext",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "jsx": "preserve",
     "jsxFactory": "preact.h",
     "jsxFragmentFactory": "preact.Fragment",
-    "moduleResolution": "node",
     "noEmit": true,
     "allowJs": true,
     "checkJs": true

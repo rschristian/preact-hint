@@ -1,17 +1,26 @@
+import { Root, Header, Main, Footer } from '@rschristian/intrepid-design';
+import { CodeBlock, Option } from '@rschristian/intrepid-design/docs';
 import { withTwind } from '@rschristian/twind-wmr';
 
-import { Header } from './components/core/Header';
-import { Footer } from './components/core/Footer';
-import { CodeBlock } from './components/CodeBlock';
-import { Option } from './components/Option';
-
-import { install, generalUsage, optionAttribute, optionTemplate } from './codeSamples';
+import { install, generalUsage, optionAttribute, optionTemplate } from './codeSamples.js';
 
 export function App() {
     return (
-        <div class="flex(& col) h-full px-5 text(content dark:content-dark) bg([#f8f8f8] dark:[#2a2727])">
-            <Header />
-            <main class="w-full lg:max-w-4xl flex-1 mb(16 md:32 lg:48) mx-auto">
+        <Root>
+            <Header RSC={{ href: 'https://github.com/rschristian', label: 'My GitHub Account' }}>
+                <Header.NavItem
+                    href="https://github.com/rschristian/diff-compare"
+                    label="Source Code on GitHub"
+                    iconId="github"
+                />
+                <Header.NavItem
+                    href="https://twitter.com/_rschristian"
+                    label="My Twitter Account"
+                    iconId="twitter"
+                />
+                <Header.ThemeToggle />
+            </Header>
+            <Main>
                 <h1 class="mb-2 text(primary(& dark:light) 5xl center lg:left)">
                     Preact Hint
                 </h1>
@@ -32,7 +41,7 @@ export function App() {
                 <p class="text-xl mb-2">
                     Preact-Hint is a lightweight and extensible tooltip component for{' '}
                     <a
-                        class="text(primary dark:primary-light hocus:primary-hover!) underline"
+                        class="text(primary dark:primary-light hocus:!primary-hover) underline"
                         href="https://preactjs.com"
                         target="_blank"
                         rel="noreferrer"
@@ -88,14 +97,14 @@ export function App() {
                         </div>
                     }
                 />
-            </main>
-            <Footer />
-        </div>
+            </Main>
+            <Footer year={2021} />
+        </Root>
     );
 }
 
 const { hydrate, prerender } = withTwind(
-    () => import('./styles/twind.config'),
+    () => import('./styles/twind.config.js'),
     () => <App />,
 );
 

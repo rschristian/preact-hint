@@ -9,7 +9,7 @@ export function App() {
         <Root>
             <Header RSC={{ href: 'https://github.com/rschristian', label: 'My GitHub Account' }}>
                 <Header.NavItem
-                    href="https://github.com/rschristian/diff-compare"
+                    href="https://github.com/rschristian/preact-hint"
                     label="Source Code on GitHub"
                     iconId="github"
                 />

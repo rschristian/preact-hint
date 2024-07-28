@@ -12,7 +12,10 @@
   "license": "MIT",
   "description": "Tooltip Component for Preact",
   "homepage": "https://rschristian.github.io/preact-hint",
-  "repository": "https://github.com/rschristian/preact-hint",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rschristian/preact-hint.git"
+  },
   "keywords": [
     "preact",
     "hint",

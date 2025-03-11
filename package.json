@@ -38,7 +38,7 @@
     "format": "prettier --write --ignore-path .gitignore ."
   },
   "peerDependencies": {
-    "preact": "*"
+    "preact": "^10.23.0"
   },
   "devDependencies": {
     "@rschristian/intrepid-design": "^0.1.0",
@@ -48,7 +48,7 @@
     "dedent": "^0.7.0",
     "htm": "^3.1.0",
     "microbundle": "^0.14.2",
-    "preact": "^10.11.3",
+    "preact": "^10.26.4",
     "preact-feather": "^4.2.1",
     "preact-iso": "^2.3.0",
     "preact-render-to-string": "^5.2.6",

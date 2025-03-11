@@ -1,6 +1,6 @@
 import { h } from 'preact';
 import type { ComponentChild, VNode } from 'preact';
-import { useCallback, useLayoutEffect, useRef, useState } from 'preact/hooks';
+import { useLayoutEffect, useRef, useReducer } from 'preact/hooks';
 
 import './style.css';
 
@@ -10,46 +10,74 @@ interface Props {
     template?: (content: string) => VNode;
 }
 
+interface State {
+    attribute: string;
+    content: string;
+    targetBoundingRect: DOMRect | null;
+}
+
+function hintReducer(state: State, e: MouseEvent | FocusEvent) {
+    if (!(e.target instanceof Element)) return state;
+
+    let content = '';
+    if (!(content = e.target.getAttribute(state.attribute))) return state;
+
+    if (e.type === 'mouseover' || e.type === 'focusin') {
+        return {
+            attribute: state.attribute,
+            content,
+            targetBoundingRect: e.target.getBoundingClientRect(),
+        }
+    }
+
+    if (e.type === 'mouseout' || e.type === 'focusout') {
+        return {
+            attribute: state.attribute,
+            content: '',
+            targetBoundingRect: null,
+        }
+    }
+
+    return state;
+}
+
+const EVENTS = ['mouseover', 'mouseout', 'focusin', 'focusout'];
+
 export default function Container(props: Props): VNode {
-    const attribute = props.attribute || 'data-hint';
-    const [content, setContent] = useState<string>('');
-    const [containerElement, setContainerElement] = useState<HTMLDivElement | null>(null);
-    const [targetBoundingRect, setTargetBoundingRect] = useState<DOMRect | null>(null);
-
-    const onRefChange = useCallback(
-        (node: HTMLDivElement | null) => {
-            setContainerElement(node);
-            if (containerElement) {
-                const show = (e: Event) => {
-                    if (e.target instanceof Element && e.target.hasAttribute(attribute)) {
-                        setContent(e.target.getAttribute(attribute) || '');
-                        setTargetBoundingRect(e.target.getBoundingClientRect());
-                    }
-                };
-                const hide = (e: Event) => {
-                    if (e.target instanceof Element && e.target.hasAttribute(attribute)) {
-                        setContent('');
-                        setTargetBoundingRect(null);
-                    }
-                };
-
-                containerElement.addEventListener('mouseover', show);
-                containerElement.addEventListener('focusin', show);
-                containerElement.addEventListener('mouseout', hide);
-                containerElement.addEventListener('focusout', hide);
-            }
-        },
-        [containerElement],
+    const [state, dispatch] = useReducer(
+        hintReducer,
+        {
+            attribute: props.attribute || 'data-hint',
+            content: '',
+            targetBoundingRect: null
+        }
     );
+    const containerElement = useRef<HTMLDivElement | null>(null);
+
+    const onRefChange = (node: HTMLDivElement) => {
+        containerElement.current = node;
+
+        for (const event of EVENTS) {
+            node.addEventListener(event, dispatch);
+        }
+
+        return () => {
+            for (const event of EVENTS) {
+                node.removeEventListener(event, dispatch);
+            }
+        }
+    };
+
+    const show = containerElement.current !== null && state.content && state.targetBoundingRect;
 
     return (
         <div ref={onRefChange} class="preact-hint__container">
-            {content && containerElement && targetBoundingRect && (
+            {show && (
                 <Hint
-                    content={content}
                     template={props.template}
-                    rootBoundingRect={containerElement.getBoundingClientRect()}
-                    targetBoundingRect={targetBoundingRect}
+                    content={state.content}
+                    rootBoundingRect={containerElement.current.getBoundingClientRect()}
+                    targetBoundingRect={state.targetBoundingRect}
                 />
             )}
             {props.children}

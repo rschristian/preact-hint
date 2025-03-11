@@ -1,11 +1,11 @@
 import { h } from 'preact';
-import type { ComponentChild, VNode } from 'preact';
+import type { ComponentChildren, VNode } from 'preact';
 import { useLayoutEffect, useRef, useReducer } from 'preact/hooks';
 
 import './style.css';
 
 interface Props {
-    children: ComponentChild | ComponentChild[];
+    children: ComponentChildren;
     attribute?: string;
     template?: (content: string) => VNode;
 }

@@ -2,7 +2,7 @@
   "name": "preact-hint",
   "version": "0.3.0",
   "type": "module",
-  "source": "src/index.tsx",
+  "source": "src/index.jsx",
   "types": "dist/preact-hint.d.ts",
   "exports": {
     ".": "./dist/preact-hint.js",
@@ -30,8 +30,8 @@
   ],
   "sideEffects": false,
   "scripts": {
-    "build": "microbundle -f modern",
-    "postbuild": "mv dist/preact-hint.css dist/style.css & mv dist/index.d.ts dist/preact-hint.d.ts",
+    "build": "microbundle -f modern --no-generateTypes",
+    "postbuild": "mv dist/preact-hint.css dist/style.css & cp src/types.d.ts dist/preact-hint.d.ts",
     "serve:dev": "pnpm --filter=docs serve:dev & pnpm build:local --watch",
     "build:docs": "pnpm build:local && pnpm --filter=docs build",
     "serve:prod": "pnpm --filter=docs serve:prod",

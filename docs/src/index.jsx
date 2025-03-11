@@ -123,7 +123,7 @@ export function App() {
                     demo={
                         <div class="mt-4">
                             <Hint
-                                template={(content: string) => {
+                                template={(content) => {
                                     const stringPieces = content.split(',');
                                     return (
                                         <>

@@ -1,22 +1,24 @@
 import { h } from 'preact';
-import type { ComponentChildren, VNode } from 'preact';
 import { useLayoutEffect, useRef, useReducer } from 'preact/hooks';
 
 import './style.css';
 
-interface Props {
-    children: ComponentChildren;
-    attribute?: string;
-    template?: (content: string) => VNode;
-}
+/**
+ * @typedef {import('./types.d.ts').Props} Props
+ * @typedef {import('./types.d.ts').State} State
+ * @typedef {import('./types.d.ts').HintProps} HintProps
+ */
 
-interface State {
-    attribute: string;
-    content: string;
-    targetBoundingRect: DOMRect | null;
-}
+/**
+ * @template T
+ * @typedef {import('preact').Ref<T>} Ref<T>
+ */
 
-function hintReducer(state: State, e: MouseEvent | FocusEvent) {
+/**
+ * @param {State} state
+ * @param {MouseEvent | FocusEvent} e
+ */
+function hintReducer(state, e) {
     if (!(e.target instanceof Element)) return state;
 
     const content = e.target.getAttribute(state.attribute);
@@ -43,15 +45,20 @@ function hintReducer(state: State, e: MouseEvent | FocusEvent) {
 
 const EVENTS = ['mouseover', 'mouseout', 'focusin', 'focusout'];
 
-export default function Container(props: Props): VNode {
+/**
+ * @param {Props} props
+ */
+export default function Container(props) {
     const [state, dispatch] = useReducer(hintReducer, {
         attribute: props.attribute || 'data-hint',
         content: '',
         targetBoundingRect: null,
     });
-    const containerElement = useRef<HTMLDivElement | null>(null);
+    /** @type {Ref<HTMLDivElement | null>} */
+    const containerElement = useRef(null);
 
-    const onRefChange = (node: HTMLDivElement) => {
+    /** @param {HTMLDivElement} node */
+    const onRefChange = (node) => {
         containerElement.current = node;
 
         for (const event of EVENTS) {
@@ -82,16 +89,14 @@ export default function Container(props: Props): VNode {
     );
 }
 
-interface HintProps {
-    content: string;
-    template?: (content: string) => VNode;
-    rootBoundingRect: DOMRect;
-    targetBoundingRect: DOMRect;
-}
-
-function Hint(props: HintProps): VNode {
-    const hint = useRef<HTMLDivElement>(null);
-    const hintContent = useRef<HTMLSpanElement>(null);
+/**
+ * @param {HintProps} props
+ */
+function Hint(props) {
+    /** @type {Ref<HTMLDivElement | null>} */
+    const hint = useRef(null);
+    /** @type {Ref<HTMLSpanElement | null>} */
+    const hintContent = useRef(null);
 
     useLayoutEffect(() => {
         const hintWidth = hintContent.current.getBoundingClientRect().width;

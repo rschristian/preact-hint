@@ -1,11 +1,7 @@
-# KDE directory preferences
-.directory
-
 # Dependency directories
 node_modules/
 
 # Ignore built files
 dist/
-build/
-docs/**/preact-hint*
-.cache
+docs/build/
+docs/src/preact-hint

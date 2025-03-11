@@ -1,6 +1,6 @@
 if (import.meta.env.NODE_ENV !== 'production') {
     while (!document.querySelector('#theme-toggle')) {
-        await new Promise((r) => setTimeout(r, 50));
+        await new Promise((r) => setTimeout(r, 10));
     }
 }
 

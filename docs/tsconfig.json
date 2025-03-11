@@ -6,9 +6,8 @@
     "noEmit": true,
     "allowJs": true,
     "checkJs": true,
-    "jsx": "react",
-    "jsxFactory": "h",
-    "jsxFragmentFactory": "preact.Fragment"
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact"
   },
-  "include": ["src/**/*"]
+  "include": ["node_modules/vite/client.d.ts", "**/*"]
 }

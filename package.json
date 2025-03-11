@@ -3,7 +3,7 @@
   "version": "0.3.0",
   "type": "module",
   "source": "src/index.tsx",
-  "types": "dist/index.d.ts",
+  "types": "dist/preact-hint.d.ts",
   "exports": {
     ".": "./dist/preact-hint.js",
     "./style.css": "./dist/style.css",
@@ -30,7 +30,8 @@
   ],
   "sideEffects": false,
   "scripts": {
-    "build": "microbundle -f modern --no-sourcemap --tsconfig tsconfig.build.json && mv dist/preact-hint.css dist/style.css",
+    "build": "microbundle -f modern --no-sourcemap --tsconfig tsconfig.build.json",
+    "postbuild": "mv dist/preact-hint.css dist/style.css & mv dist/index.d.ts dist/preact-hint.d.ts",
     "build:docs": "yarn build:widget --no-watch && wmr build --prerender && node scripts/post-build.js",
     "serve:dev": "wmr -p 3000 & yarn build:widget",
     "serve:prod": "wmr serve -p 3000",

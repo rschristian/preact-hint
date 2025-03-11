@@ -43,7 +43,7 @@ export default function Container(props: Props): VNode {
     );
 
     return (
-        <div ref={onRefChange} style="position: relative">
+        <div ref={onRefChange} class="preact-hint__container">
             {content && containerElement && targetBoundingRect && (
                 <Hint
                     content={content}

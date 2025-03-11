@@ -3,6 +3,10 @@
   --hint-background: #000;
 }
 
+.preact-hint__container {
+  position: relative;
+}
+
 .preact-hint {
   padding-bottom: 5px;
   position: absolute;

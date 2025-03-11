@@ -14,7 +14,7 @@ export default function Container(props: Props): VNode {
     const attribute = props.attribute || 'data-hint';
     const [content, setContent] = useState<string>('');
     const [containerElement, setContainerElement] = useState<HTMLDivElement | null>(null);
-    const [targetBoundingRect, setTargetBoundingRect] = useState<ClientRect | null>(null);
+    const [targetBoundingRect, setTargetBoundingRect] = useState<DOMRect | null>(null);
 
     const onRefChange = useCallback(
         (node: HTMLDivElement | null) => {
@@ -60,8 +60,8 @@ export default function Container(props: Props): VNode {
 interface HintProps {
     content: string;
     template?: (content: string) => VNode;
-    rootBoundingRect: ClientRect;
-    targetBoundingRect: ClientRect;
+    rootBoundingRect: DOMRect;
+    targetBoundingRect: DOMRect;
 }
 
 function Hint(props: HintProps): VNode {

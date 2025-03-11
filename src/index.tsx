@@ -19,8 +19,8 @@ interface State {
 function hintReducer(state: State, e: MouseEvent | FocusEvent) {
     if (!(e.target instanceof Element)) return state;
 
-    let content = '';
-    if (!(content = e.target.getAttribute(state.attribute))) return state;
+    const content = e.target.getAttribute(state.attribute);
+    if (!content) return state;
 
     if (e.type === 'mouseover' || e.type === 'focusin') {
         return {

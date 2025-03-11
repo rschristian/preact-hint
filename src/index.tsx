@@ -27,7 +27,7 @@ function hintReducer(state: State, e: MouseEvent | FocusEvent) {
             attribute: state.attribute,
             content,
             targetBoundingRect: e.target.getBoundingClientRect(),
-        }
+        };
     }
 
     if (e.type === 'mouseout' || e.type === 'focusout') {
@@ -35,7 +35,7 @@ function hintReducer(state: State, e: MouseEvent | FocusEvent) {
             attribute: state.attribute,
             content: '',
             targetBoundingRect: null,
-        }
+        };
     }
 
     return state;
@@ -44,14 +44,11 @@ function hintReducer(state: State, e: MouseEvent | FocusEvent) {
 const EVENTS = ['mouseover', 'mouseout', 'focusin', 'focusout'];
 
 export default function Container(props: Props): VNode {
-    const [state, dispatch] = useReducer(
-        hintReducer,
-        {
-            attribute: props.attribute || 'data-hint',
-            content: '',
-            targetBoundingRect: null
-        }
-    );
+    const [state, dispatch] = useReducer(hintReducer, {
+        attribute: props.attribute || 'data-hint',
+        content: '',
+        targetBoundingRect: null,
+    });
     const containerElement = useRef<HTMLDivElement | null>(null);
 
     const onRefChange = (node: HTMLDivElement) => {
@@ -65,7 +62,7 @@ export default function Container(props: Props): VNode {
             for (const event of EVENTS) {
                 node.removeEventListener(event, dispatch);
             }
-        }
+        };
     };
 
     const show = containerElement.current !== null && state.content && state.targetBoundingRect;
@@ -111,7 +108,7 @@ function Hint(props: HintProps): VNode {
             hintWidth / 2 +
             props.targetBoundingRect.width / 2
         }px`;
-    }, [])
+    }, []);
 
     return (
         <div class="preact-hint preact-hint__fade-in" ref={hint}>

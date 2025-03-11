@@ -44,5 +44,5 @@ export const twindConfig = defineConfig({
             },
         },
     },
-    variants: [['hocus', '&:hover,&:focus-visible']]
+    variants: [['hocus', '&:hover,&:focus-visible']],
 });

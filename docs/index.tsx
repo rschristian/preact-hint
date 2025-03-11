@@ -21,9 +21,7 @@ export function App() {
                 <Header.ThemeToggle />
             </Header>
             <Main>
-                <h1 class="mb-2 text(primary(& dark:light) 5xl center lg:left)">
-                    Preact Hint
-                </h1>
+                <h1 class="mb-2 text(primary(& dark:light) 5xl center lg:left)">Preact Hint</h1>
                 <div class="flex justify(center lg:left) mb-12">
                     <a
                         href="https://github.com/rschristian/preact-hint/blob/master/LICENSE"

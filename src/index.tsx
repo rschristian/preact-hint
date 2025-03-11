@@ -1,6 +1,6 @@
 import { h } from 'preact';
 import type { ComponentChild, VNode } from 'preact';
-import { useCallback, useEffect, useRef, useState } from 'preact/hooks';
+import { useCallback, useLayoutEffect, useRef, useState } from 'preact/hooks';
 
 import './style.css';
 
@@ -65,33 +65,29 @@ interface HintProps {
 }
 
 function Hint(props: HintProps): VNode {
-    const hint = useRef<HTMLSpanElement>(null);
-    // Render way off-screen to prevent rubber banding from initial (and unavoidable) render.
-    const [hintWidth, setHintWidth] = useState(10000);
+    const hint = useRef<HTMLDivElement>(null);
+    const hintContent = useRef<HTMLSpanElement>(null);
 
-    useEffect(() => {
-        if (hint.current) {
-            setHintWidth(hint.current.getBoundingClientRect().width);
-        }
-    }, [hint]);
+    useLayoutEffect(() => {
+        const hintWidth = hintContent.current.getBoundingClientRect().width;
+
+        hint.current.style.bottom = `${
+            props.rootBoundingRect.height -
+            props.targetBoundingRect.top +
+            props.rootBoundingRect.top +
+            2
+        }px`;
+        hint.current.style.left = `${
+            props.targetBoundingRect.left -
+            props.rootBoundingRect.left -
+            hintWidth / 2 +
+            props.targetBoundingRect.width / 2
+        }px`;
+    }, [])
 
     return (
-        <div
-            class="preact-hint preact-hint__fade-in"
-            style={{
-                bottom:
-                    props.rootBoundingRect.height -
-                    props.targetBoundingRect.top +
-                    props.rootBoundingRect.top +
-                    2,
-                left:
-                    props.targetBoundingRect.left -
-                    props.rootBoundingRect.left -
-                    hintWidth / 2 +
-                    props.targetBoundingRect.width / 2,
-            }}
-        >
-            <span class="preact-hint__content" ref={hint}>
+        <div class="preact-hint preact-hint__fade-in" ref={hint}>
+            <span class="preact-hint__content" ref={hintContent}>
                 {props.template ? props.template(props.content) : props.content}
             </span>
         </div>

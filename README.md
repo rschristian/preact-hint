@@ -16,7 +16,7 @@ Preact-Hint is a tiny component library used for displaying tooltips. Try out [t
 ## Install
 
 ```
-$ yarn add preact-hint
+$ npm install preact-hint
 ```
 
 ## Usage

@@ -6,8 +6,7 @@
     "jsx": "react",
     "jsxFactory": "h",
     "moduleResolution": "node",
-    "noImplicitAny": true,
-    "strict": true
+    "noImplicitAny": true
   },
   "include": ["src"]
 }
